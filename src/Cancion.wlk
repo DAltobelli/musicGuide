@@ -5,7 +5,9 @@ class Cancion {
 	var letra
 
 	constructor(unNombre, unaDuracion, letraCancion) {
-		nombre = unNombre duracion = unaDuracion letra = letraCancion
+		nombre = unNombre
+		duracion = unaDuracion
+		letra = letraCancion
 	}
 
 	method letraCancion() = letra

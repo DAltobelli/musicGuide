@@ -1,0 +1,27 @@
+import lucia.*
+import joaquin.*
+import luisAlberto.*
+import Cancion.*
+
+describe "tests para saber si los cantantes interpretan bien las canciones"{
+	const laFamilia = new Cancion ("La Familia" , 264 ,"Quiero brindar por mi gente sencilla, por el amor brindo por la familia" )
+	const cisne = new Cancion ( "Cisne" , 312 ,"Hoy el viento se abrió quedó vacío el aire una vez más y el manantial brotó y nadie está aquí y puedo ver que solo estallan las hojas al brillar")
+	test "joaquin no interpreta bien la cancion la familia"{
+		assert.notThat(joaquin.interpretaBienCancion(laFamilia))
+	}
+	test "joaquin debe interpretar bien la cancion cisne"{
+		assert.that(joaquin.interpretaBienCancion(cisne))
+	}
+	test "lucia debe interpretar bien la cancion la familia"{
+		assert.that(lucia.interpretaBienCancion(laFamilia))
+	}
+	test "lucia no debe interpretar bien la cancion cisne"{
+		assert.notThat(lucia.interpretaBienCancion(cisne))
+	}
+	test "luis alberto debe interpretar bien la familia"{
+		assert.that(luisAlberto.interpretaBienCancion(laFamilia))
+	}
+	test "luis alberto debe interpretar bien la cancion cisne"{
+		assert.that(luisAlberto.interpretaBienCancion(cisne))
+	}
+}

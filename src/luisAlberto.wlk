@@ -1,7 +1,8 @@
 import Presentacion.*
+import guitarras.*
 
 object luisAlberto {
-	var guitarraActual
+	var guitarraActual = fender
 
 	method guitarraActual(unaGuitarra) {
 		guitarraActual = unaGuitarra
