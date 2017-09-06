@@ -6,16 +6,14 @@ var grupo = "pimpinela"
 var habilidad= 20
 var costoPresentacion=100
 
-
-method habilidad(){
-	if(grupo != null){
-		 habilidad+=5
-		 return habilidad
-		}
-	else {
-		return habilidad
-		}
+method tocarEnGrupo(){
+	self.aumentarHabilidad(5)
 }
+
+method aumentarHabilidad(unaCantidad){
+	habilidad += unaCantidad
+}
+
 method interpretaBienCancion(unaCancion){
 	return unaCancion.duracionCancion()>300
 }
