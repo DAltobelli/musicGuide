@@ -3,12 +3,10 @@ class Presentacion {
 	var fecha
 	var lugar
 	var cantantes = #{ }
-	var capacidad
 
-	constructor(unaFecha, unLugar, unosCantantes, unaCapacidad) {
-		fecha = unaFecha
+	constructor(unDia, unMes, unAnio, unLugar, unosCantantes, unaCapacidad) {
+		fecha = new Date(unDia,unMes,unAnio)
 		lugar = unLugar
-		capacidad = unaCapacidad
 		cantantes = unosCantantes
 	}
 
@@ -16,7 +14,7 @@ class Presentacion {
 		cantantes.add(unCantante)
 	}
 	method esLugarConcurrido(){
-		return capacidad > 5000
+		return lugar.capacidad(fecha) > 5000
 	}
 	
 	method costo(){
