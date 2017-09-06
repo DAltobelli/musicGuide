@@ -9,7 +9,7 @@ class Presentacion {
 	var lugar
 	var cantantes = #{ }
 
-	constructor(unDia, unMes, unAnio, unLugar, unosCantantes, unaCapacidad) {
+	constructor(unDia, unMes, unAnio, unLugar, unosCantantes) {
 		fecha = new Date(unDia,unMes,unAnio)
 		lugar = unLugar
 		cantantes = unosCantantes
@@ -25,4 +25,10 @@ class Presentacion {
 	method costo(){
 		return cantantes.sum({unCantante => unCantante.costoPresentacion()})
 	}
+	
+	method esUnSolo(){
+		return cantantes.size() == 1
+	}
+	
+	method fecha() = fecha
 }

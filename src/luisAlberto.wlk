@@ -20,10 +20,10 @@ object luisAlberto {
 		return true
 	}
 
-	method costoPresentacion(aniomes) {
-		if (aniomes.fecha() < 201709) {
-			return 1000 }
-		else {
+	method costoPresentacion(unaPresentacion) {
+		if(unaPresentacion.fecha() < new Date(01,09,2017)){
+			return 1000
+		}else{
 			return 1200
 		}
 	}
