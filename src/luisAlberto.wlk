@@ -21,14 +21,7 @@ method valorGuitarra(unaGuitarra,estado){
 		return 0
 	}	 
 }
-method habilidad(unaGuitarra,estado){
-	valorGuitarra=self.valorGuitarra(unaGuitarra,estado)*8
-	if(valorGuitarra <100){
-		return valorGuitarra}
-	else{
-		return valorGuitarra +(100-valorGuitarra)
-	}
-}
+
 method interpretaBienCancion(unaCancion){
 	return true
 }
