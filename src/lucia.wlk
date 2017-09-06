@@ -5,8 +5,7 @@ object lucia {
 	var costoPresentacion = 500
 
 	method interpretaBienCancion(unaCancion) {
-		return ( unaCancion.letra().contains("familia") ||
-		unaCancion.letra().contains("FAMILIA") )
+		return unaCancion.contienePalabra("familia")
 	}
 	
 	method cantarEnGrupo(){
