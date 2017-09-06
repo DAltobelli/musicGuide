@@ -14,6 +14,6 @@ class Cancion {
 	method duracionCancion() = duracion
 	
 	method contienePalabra(unaPalabra){
-		return letra.contains(unaPalabra)
+		return letra.toUpperCase().contains(unaPalabra.toUpperCase())
 	}
 }

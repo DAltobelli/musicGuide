@@ -3,7 +3,6 @@ import Cancion.*
 object joaquin {
 	var grupo = "pimpinela"
 	var habilidad = 20
-	var costoPresentacion = 100
 
 	method cantarEnGrupo() {
 		self.aumentarHabilidad(5)
@@ -19,10 +18,10 @@ object joaquin {
 
 	method costoPresentacion(unaCantidad) {
 		if (grupo != null) {
-			return costoPresentacion
+			return 100
 		}
 		else {
-			costoPresentacion -= 50 return costoPresentacion//preguntar que carajo significa esto
+			return 50
 		}
 	}
 }

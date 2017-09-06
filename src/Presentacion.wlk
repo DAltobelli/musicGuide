@@ -1,3 +1,8 @@
+import joaquin.*
+import lucia.*
+import luisAlberto.*
+import lugares.*
+import Cancion.*
 
 class Presentacion {
 	var fecha
