@@ -5,14 +5,17 @@ class Presentacion {
 	var cantantes = #{ }
 	var capacidad
 
-	constructor(unaFecha, unLugar, listaCantantes, unaCapacidad) {
+	constructor(unaFecha, unLugar, unosCantantes, unaCapacidad) {
 		fecha = unaFecha
 		lugar = unLugar
 		capacidad = unaCapacidad
-		cantantes = listaCantantes.forEach({ cantante => self.agregarCantante(cantante) })
+		cantantes = unosCantantes
 	}
 
 	method agregarCantante(unCantante) {
 		cantantes.add(unCantante)
+	}
+	method esLugarConcurrido(){
+		return capacidad > 5000
 	}
 }

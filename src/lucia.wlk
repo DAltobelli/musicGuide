@@ -12,12 +12,11 @@ object lucia {
 		self.disminuirHabilidad(20)
 	}
 	
-	method costoPresentacion(cantidadEspectadores) {
-		if (cantidadEspectadores > 5000) {
-			return costoPresentacion
-		}
-		else {
-			costoPresentacion -= 100 return costoPresentacion
+	method costoPresentacion(unaPresentacion) {
+		if(unaPresentacion.esLugarConcuirrido()){
+			return 500
+		}else{
+			return 400
 		}
 	}
 	
