@@ -18,4 +18,8 @@ class Presentacion {
 	method esLugarConcurrido(){
 		return capacidad > 5000
 	}
+	
+	method costo(){
+		return cantantes.sum({unCantante => unCantante.costoPresentacion()})
+	}
 }
