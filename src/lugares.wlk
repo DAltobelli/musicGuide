@@ -1,6 +1,6 @@
 object lunaPark{
 	method capacidad(unaFecha){
-		return 9_290
+		return 9290
 	}
 }
 object laTrastienda{

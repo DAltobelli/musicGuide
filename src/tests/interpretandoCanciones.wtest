@@ -1,6 +1,4 @@
-import lucia.*
-import joaquin.*
-import luisAlberto.*
+import cantantes.*
 import Cancion.*
 
 describe "tests para saber si los cantantes interpretan bien las canciones"{

@@ -1,6 +1,4 @@
-import joaquin.*
-import lucia.*
-import luisAlberto.*
+import cantantes.*
 import lugares.*
 import Cancion.*
 
@@ -23,7 +21,7 @@ class Presentacion {
 	}
 	
 	method costo(){
-		return cantantes.sum({unCantante => unCantante.costoPresentacion()})
+		return cantantes.sum({unCantante => unCantante.costoPresentacion(self)})
 	}
 	
 	method esUnSolo(){

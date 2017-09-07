@@ -10,8 +10,7 @@ class Cancion {
 		letra = letraCancion
 	}
 
-	method letraCancion() = letra
-	method duracionCancion() = duracion
+	method duracion() = duracion
 	
 	method contienePalabra(unaPalabra){
 		return letra.toUpperCase().contains(unaPalabra.toUpperCase())
