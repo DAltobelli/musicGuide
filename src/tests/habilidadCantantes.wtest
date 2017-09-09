@@ -1,6 +1,38 @@
+import cantantes.*
+import guitarras.*
+import lugares.*
+import fixture1.*
 
-test "testX" {
-
-	assert.that(true)
-
+describe "test para saber si las habilidades de los cantantes varían correctamente"{
+	test "joaquin esta en pimpinela (habilidad=25)" {
+	
+		assert.that(joaquin.habilidad()==25)
+	}
+	
+	test "joaquin se hace solista (habilidad=20)" {
+		fixture1.todosDejanGrupo()
+		assert.that(joaquin.habilidad()==20)
+	}
+	
+	test "lucia esta en pimpinela (habilidad=50)"{
+		assert.that(lucia.habilidad()==50)
+	}
+	
+	test "lucia se hace solista (habilidad=70)"{
+		fixture1.todosDejanGrupo()
+		assert.that(lucia.habilidad()==70)
+	}
+	test "alberto toca con la fader (habilidad=80)"{
+		assert.that(luisAlberto.habilidad()==80)
+	}
+	test "alberto toca con la gibson sana (habilidad=100)"{
+		luisAlberto.guitarraActual(gibson)
+		assert.that(luisAlberto.habilidad()==100)
+	}
+	test "alberto toca con la gibson rota (habilidad=40)"{
+		luisAlberto.guitarraActual(gibson)
+		gibson.romperse()
+		assert.that(luisAlberto.habilidad()==40)
+	}
+	
 }
