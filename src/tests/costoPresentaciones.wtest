@@ -41,6 +41,10 @@ describe "costos de las presentaciones y capacidades de laTrastienda"{
 		assert.that(presentacion.costo()==1550)
 		
 	}
+	test "costo presentacion laTrastienda"{
+		var presentacion =fixture1.trastienda15_11_2017()
+		assert.that(presentacion.costo()==1650)
+	}
 	
 }
 
