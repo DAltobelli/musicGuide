@@ -1,6 +1,5 @@
 import cantantes.*
 import guitarras.*
-import lugares.*
 import fixture1.*
 
 describe "test para saber si las habilidades de los cantantes varían correctamente"{

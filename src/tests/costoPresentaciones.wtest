@@ -1,0 +1,48 @@
+import cantantes.*
+import guitarras.*
+import lugares.*
+import fixture1.*
+
+describe "costos de las presentaciones y capacidades de laTrastienda"{
+	
+	test "capacidad laTrastienda 5 de agosto de 2017"{
+		assert.that(laTrastienda.capacidad(new Date(5,8,2017))==700)
+	}
+	test "capacidad laTrastienda 8 de agosto de 2017"{
+		assert.that(laTrastienda.capacidad(new Date(08,08,2017))==400)
+	}
+	
+	test "joaquin cobra en luna park" {
+		var presentacion=fixture1.lunaPark20_04_2017()
+		assert.that(joaquin.costoPresentacion(presentacion)==50)
+	}
+	test "joaquin toca solo en trastienda"{
+		var presentacion=fixture1.trastienda15_11_2017_solo()
+		assert.that(joaquin.costoPresentacion(presentacion)==100)
+	}
+	test "lucia cobra en lunaPark(500)"{
+		var presentacion=fixture1.lunaPark20_04_2017()
+		assert.that(lucia.costoPresentacion(presentacion)==500)
+	}
+	test "lucia cobra en la trastienda(400)"{
+		var presentacion =fixture1.trastienda15_11_2017()
+		assert.that(lucia.costoPresentacion(presentacion)==400)
+	}
+	test "luis Alberto cobra en luna Park(1000)"{
+		var presentacion=fixture1.lunaPark20_04_2017()
+		assert.that(luisAlberto.costoPresentacion(presentacion)==1000)
+	}
+	test "luis alberto cobra en laTrastienda(1200)"{
+		var presentacion =fixture1.trastienda15_11_2017()
+		assert.that(luisAlberto.costoPresentacion(presentacion)==1200)
+	}
+	test "costo presentacion luna park"{
+		var presentacion=fixture1.lunaPark20_04_2017()
+		assert.that(presentacion.costo()==1550)
+		
+	}
+	
+}
+
+
+	
