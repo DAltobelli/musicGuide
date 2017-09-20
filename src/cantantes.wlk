@@ -2,15 +2,22 @@ import Cancion.*
 import guitarras.*
 
 
-object joaquin {
+class MusicoDeGrupo{
 	var tieneGrupo = true
+	var habilidadGrupal
+	var habilidad
+	
+	constructor(unaHabilidad,unaHabilidadGrupal){
+		habilidad = unaHabilidad
+		habilidadGrupal = unaHabilidadGrupal
+	}
 	
 	method habilidad(){
 		if(tieneGrupo){
-			return 25
+			return habilidad + habilidadGrupal
 		}
 		else{
-			return 20
+			return habilidad
 		}
 	}
 	
@@ -32,20 +39,27 @@ object joaquin {
 	}
 }
 
-object lucia {
+class VocalistaPopular {
 	var tieneGrupo = true
+	var habilidad
+	var palabraMagica
+	
+	constructor(unaHabilidad,unaPalabra){
+		habilidad = unaHabilidad
+		palabraMagica = unaPalabra
+	}
 	
 	method habilidad(){
 		if(tieneGrupo){
-			return 50
+			return habilidad - 20
 		}
 		else{
-			return 70
+			return habilidad
 		}
 	}
 	
 	method interpretaBienCancion(unaCancion) {
-		return unaCancion.contienePalabra("familia")
+		return unaCancion.contienePalabra(palabraMagica)
 	}
 	
 	
