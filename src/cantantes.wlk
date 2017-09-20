@@ -4,6 +4,7 @@ import guitarras.*
 class Musico{
 	var albumes = #{}
 	
+	method albumes() = albumes
 	method agregarAlbum(unAlbum){
 		albumes.add(unAlbum)
 	}
@@ -48,7 +49,7 @@ class MusicoDeGrupo inherits Musico{
 
 class VocalistaPopular inherits Musico{
 	var tieneGrupo = true
-	var habilidadBase = 8
+	var habilidadBase
 	var palabraMagica
 	
 	constructor(unaHabilidadBase,unaPalabra){
@@ -83,7 +84,7 @@ class VocalistaPopular inherits Musico{
 	}
 }
 
-object luisAlberto {
+object luisAlberto inherits Musico{
 	var guitarraActual = fender
 
 	method guitarraActual(unaGuitarra) {
