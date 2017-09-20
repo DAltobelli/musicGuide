@@ -1,23 +1,30 @@
 import Cancion.*
 import guitarras.*
 
+class Musico{
+	var albumes = #{}
+	
+	method agregarAlbum(unAlbum){
+		albumes.add(unAlbum)
+	}
+}
 
-class MusicoDeGrupo{
+class MusicoDeGrupo inherits Musico{
 	var tieneGrupo = true
 	var habilidadGrupal
-	var habilidad
+	var habilidadBase
 	
-	constructor(unaHabilidad,unaHabilidadGrupal){
-		habilidad = unaHabilidad
+	constructor(unaHabilidadBase,unaHabilidadGrupal){
+		habilidadBase = unaHabilidadBase
 		habilidadGrupal = unaHabilidadGrupal
 	}
 	
 	method habilidad(){
 		if(tieneGrupo){
-			return habilidad + habilidadGrupal
+			return habilidadBase + habilidadGrupal
 		}
 		else{
-			return habilidad
+			return habilidadBase
 		}
 	}
 	
@@ -39,22 +46,22 @@ class MusicoDeGrupo{
 	}
 }
 
-class VocalistaPopular {
+class VocalistaPopular inherits Musico{
 	var tieneGrupo = true
-	var habilidad
+	var habilidadBase = 8
 	var palabraMagica
 	
-	constructor(unaHabilidad,unaPalabra){
-		habilidad = unaHabilidad
+	constructor(unaHabilidadBase,unaPalabra){
+		habilidadBase = unaHabilidadBase
 		palabraMagica = unaPalabra
 	}
 	
 	method habilidad(){
 		if(tieneGrupo){
-			return habilidad - 20
+			return habilidadBase - 20
 		}
 		else{
-			return habilidad
+			return habilidadBase
 		}
 	}
 	
