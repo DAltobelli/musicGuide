@@ -3,15 +3,21 @@ import guitarras.*
 
 class Musico{
 	var albumes = #{}
+	var tieneGrupo = true
 	
 	method albumes() = albumes
 	method agregarAlbum(unAlbum){
 		albumes.add(unAlbum)
 	}
+	method abandonarGrupo(){
+		tieneGrupo = false
+	}
+	method tieneGrupo(){
+		return tieneGrupo
+	}
 }
 
 class MusicoDeGrupo inherits Musico{
-	var tieneGrupo = true
 	var habilidadGrupal
 	var habilidadBase
 	
@@ -42,13 +48,10 @@ class MusicoDeGrupo inherits Musico{
 		}
 	}
 	
-	method abandonarGrupo(){
-		tieneGrupo = false
-	}
+	
 }
 
 class VocalistaPopular inherits Musico{
-	var tieneGrupo = true
 	var habilidadBase
 	var palabraMagica
 	
@@ -79,9 +82,6 @@ class VocalistaPopular inherits Musico{
 		}
 	}
 	
-	method abandonarGrupo(){
-		tieneGrupo = false
-	}
 }
 
 object luisAlberto inherits Musico{
