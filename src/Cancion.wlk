@@ -15,4 +15,8 @@ class Cancion {
 	method contienePalabra(unaPalabra){
 		return letra.toUpperCase().contains(unaPalabra.toUpperCase())
 	}
+	
+	method esCorta(){
+		return duracion<180
+	}
 }

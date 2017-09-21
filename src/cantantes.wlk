@@ -1,5 +1,6 @@
 import Cancion.*
 import guitarras.*
+import Album.*
 
 class Musico{
 	var albumes = #{}
@@ -14,6 +15,10 @@ class Musico{
 	}
 	method tieneGrupo(){
 		return tieneGrupo
+	}
+	
+	method esMinimalista(){
+		return albumes.all({album=>album.esMinimalista()})
 	}
 }
 

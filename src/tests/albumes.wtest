@@ -1,0 +1,18 @@
+import Cancion.*
+import cantantes.*
+import Album.*
+
+describe "Test para albumes y musicos"{
+	
+	const laFamilia= new Cancion("La Familia",264,"Quiero brindar por mi gente sencilla, por el amor brindo por la familia")
+	const especialLaFamilia = new Album(#{laFamilia},new Date(17,06,1992),100000,89000)
+	const joaquin = new MusicoDeGrupo(20,5)
+	fixture{
+		joaquin.agregarAlbum(especialLaFamilia)
+	}
+	test "joaquin no es minnimalista"{
+		assert.notThat(joaquin.esMinimalista())
+	}
+
+
+}
