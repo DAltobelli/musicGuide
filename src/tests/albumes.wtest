@@ -34,4 +34,7 @@ describe "Test para albumes y musicos"{
 	test "luisAlberto no debe ser minimalista"{
 		assert.notThat(luisAlberto.esMinimalista())
 	}
+	test "las canciones de luisAlberto que contienen cielo son almaDeDiamante y crisantemo"{
+		assert.equals(#{almaDeDiamante,crisantemo},luisAlberto.cancionesCon("cielo").asSet())
+	}
 }

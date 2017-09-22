@@ -20,6 +20,9 @@ class Musico{
 	method esMinimalista(){
 		return albumes.all({album=>album.esMinimalista()})
 	}
+	method cancionesCon(unaPalabra){
+		return albumes.flatMap{unAlbum=>unAlbum.cancionesCon(unaPalabra)}
+	}
 }
 
 class MusicoDeGrupo inherits Musico{

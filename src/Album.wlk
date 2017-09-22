@@ -14,5 +14,8 @@ class Album {
 	
 	method esMinimalista(){
 		return canciones.all({cancion=>cancion.esCorta()})
-	}	
+	}
+	method cancionesCon(unaPalabra){
+		return canciones.filter{unaCancion=>unaCancion.contienePalabra(unaPalabra)}
+	}
 }
