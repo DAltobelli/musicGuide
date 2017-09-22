@@ -18,4 +18,7 @@ class Album {
 	method cancionesCon(unaPalabra){
 		return canciones.filter{unaCancion=>unaCancion.contienePalabra(unaPalabra)}
 	}
+	method duracion(){
+		return canciones.sum{unaCancion=>unaCancion.duracion()}
+	}
 }

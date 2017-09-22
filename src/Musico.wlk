@@ -23,6 +23,9 @@ class Musico{
 	method cancionesCon(unaPalabra){
 		return albumes.flatMap{unAlbum=>unAlbum.cancionesCon(unaPalabra)}
 	}
+	method duracionObra(){
+		return albumes.sum{unAlbum=>unAlbum.duracion()}
+	}
 }
 
 class MusicoDeGrupo inherits Musico{

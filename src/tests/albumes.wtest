@@ -37,4 +37,10 @@ describe "Test para albumes y musicos"{
 	test "las canciones de luisAlberto que contienen cielo son almaDeDiamante y crisantemo"{
 		assert.equals(#{almaDeDiamante,crisantemo},luisAlberto.cancionesCon("cielo").asSet())
 	}
+	test "la obra de kike dura 0"{
+		assert.equals(0,kike.duracionObra())
+	}
+	test "la obra de soledad dura 299"{
+		assert.equals(299,soledad.duracionObra())
+	}
 }
