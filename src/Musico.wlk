@@ -52,8 +52,6 @@ class MusicoDeGrupo inherits Musico{
 			return 50
 		}
 	}
-	
-	
 }
 
 class VocalistaPopular inherits Musico{
