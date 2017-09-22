@@ -1,9 +1,14 @@
-import cantantes.*
+import Musico.*
 import guitarras.*
 import lugares.*
-import fixture1.*
+import Presentacion.*
 
 describe "costos de las presentaciones y capacidades de laTrastienda"{
+	const joaquin = new MusicoDeGrupo(20,5)
+	const lucia = new VocalistaPopular(70,"familia")
+	const presentacionLunaPark = new Presentacion(20,04,2017,lunaPark,#{luisAlberto,lucia,joaquin})
+	const trastienda15_11_2017_solo = new Presentacion(15,11,2017,laTrastienda,#{joaquin})
+	const trastienda15_11_2017 = new Presentacion(15,11,2017,laTrastienda,#{luisAlberto,lucia,joaquin})
 	
 	test "capacidad laTrastienda 5 de agosto de 2017"{
 		assert.equals(700,laTrastienda.capacidad(new Date(5,8,2017)))
@@ -12,37 +17,29 @@ describe "costos de las presentaciones y capacidades de laTrastienda"{
 		assert.equals(400,laTrastienda.capacidad(new Date(08,08,2017)))
 	}
 	test "joaquin cobra en luna park" {
-		var presentacion=fixture1.lunaPark20_04_2017()
-		assert.equals(50,joaquin.costoPresentacion(presentacion))
+		assert.equals(50,joaquin.costoPresentacion(presentacionLunaPark))
 	}
 	test "joaquin toca solo en trastienda"{
-		var presentacion=fixture1.trastienda15_11_2017_solo()
-		assert.equals(100,joaquin.costoPresentacion(presentacion))
+		assert.equals(100,joaquin.costoPresentacion(trastienda15_11_2017_solo))
 	}
 	test "lucia cobra en lunaPark(500)"{
-		var presentacion=fixture1.lunaPark20_04_2017()
-		assert.equals(500,lucia.costoPresentacion(presentacion))
+		assert.equals(500,lucia.costoPresentacion(presentacionLunaPark))
 	}
 	test "lucia cobra en la trastienda(400)"{
-		var presentacion =fixture1.trastienda15_11_2017()
-		assert.equals(400,lucia.costoPresentacion(presentacion))
+		assert.equals(400,lucia.costoPresentacion(trastienda15_11_2017))
 	}
 	test "luis Alberto cobra en luna Park(1000)"{
-		var presentacion=fixture1.lunaPark20_04_2017()
-		assert.equals(1000,luisAlberto.costoPresentacion(presentacion))
+		assert.equals(1000,luisAlberto.costoPresentacion(presentacionLunaPark))
 	}
 	test "luis alberto cobra en laTrastienda(1200)"{
-		var presentacion =fixture1.trastienda15_11_2017()
-		assert.equals(1200,luisAlberto.costoPresentacion(presentacion))
+		assert.equals(1200,luisAlberto.costoPresentacion(trastienda15_11_2017))
 	}
 	test "costo presentacion luna park"{
-		var presentacion=fixture1.lunaPark20_04_2017()
-		assert.equals(1550,presentacion.costo())
+		assert.equals(1550,presentacionLunaPark.costo())
 		
 	}
 	test "costo presentacion laTrastienda"{
-		var presentacion =fixture1.trastienda15_11_2017()
-		assert.equals(1650,presentacion.costo())
+		assert.equals(1650,trastienda15_11_2017.costo())
 	}
 	
 }

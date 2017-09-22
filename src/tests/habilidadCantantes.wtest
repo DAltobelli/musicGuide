@@ -1,15 +1,16 @@
-import cantantes.*
+import Musico.*
 import guitarras.*
-import fixture1.*
 
 describe "test para saber si las habilidades de los cantantes varían correctamente"{
-	test "joaquin esta en pimpinela (habilidad=25)" {
+	const joaquin = new MusicoDeGrupo(20,5)
+	const lucia = new VocalistaPopular(70,"familia")
 	
+	test "joaquin esta en pimpinela (habilidad=25)" {
 		assert.equals(25,joaquin.habilidad())
 	}
 	
 	test "joaquin se hace solista (habilidad=20)" {
-		fixture1.todosDejanGrupo()
+		joaquin.abandonarGrupo()
 		assert.equals(20,joaquin.habilidad())
 	}
 	
@@ -18,7 +19,7 @@ describe "test para saber si las habilidades de los cantantes varían correctamen
 	}
 	
 	test "lucia se hace solista (habilidad=70)"{
-		fixture1.todosDejanGrupo()
+		lucia.abandonarGrupo()
 		assert.equals(70,lucia.habilidad())
 	}
 	test "alberto toca con la fader (habilidad=80)"{
