@@ -1,4 +1,4 @@
-import cantantes.*
+import Musico.*
 import Cancion.*
 
 describe "tests para saber si los cantantes interpretan bien las canciones"{

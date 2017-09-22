@@ -1,4 +1,4 @@
-import cantantes.*
+import Musico.*
 import guitarras.*
 import lugares.*
 import Presentacion.*
