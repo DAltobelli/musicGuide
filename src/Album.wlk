@@ -21,4 +21,7 @@ class Album {
 	method duracion(){
 		return canciones.sum{unaCancion=>unaCancion.duracion()}
 	}
+	method cancionMasLarga(){
+		return canciones.max{unaCancion=>unaCancion.largoLetra()}
+	}
 }

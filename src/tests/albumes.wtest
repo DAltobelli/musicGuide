@@ -43,4 +43,7 @@ describe "Test para albumes y musicos"{
 	test "la obra de soledad dura 299"{
 		assert.equals(299,soledad.duracionObra())
 	}
+	test "la cancion mas larga del album la sole es eres"{
+		assert.equals(eres,laSole.cancionMasLarga())
+	}
 }
