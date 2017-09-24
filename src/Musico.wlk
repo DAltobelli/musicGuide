@@ -26,6 +26,9 @@ class Musico{
 	method duracionObra(){
 		return albumes.sum{unAlbum=>unAlbum.duracion()}
 	}
+	method laPego(){
+		return albumes.all({unAlbum=>unAlbum.tuvoBuenasVentas()}) 
+	}
 }
 
 class MusicoDeGrupo inherits Musico{
