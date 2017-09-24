@@ -51,6 +51,11 @@ describe "Test para albumes y musicos"{
 		assert.equals(laFamilia,especialLaFamilia.cancionMasLarga())
 	}
 	
-	
+	test "joaquin la pego con su unico album especialLaFamilia"{
+		assert.that(joaquin.laPego())
+	}
+	test "soledad no la pego con su album laSole"{
+		assert.notThat(soledad.laPego())
+	}
 
 }
