@@ -46,4 +46,10 @@ describe "Test para albumes y musicos"{
 	test "la cancion mas larga del album la sole es eres"{
 		assert.equals(eres,laSole.cancionMasLarga())
 	}
+	test "joaquin la pego con su unico album especialLaFamilia"{
+		assert.that(joaquin.laPego())
+	}
+	test "soledad no la pego con su album laSole"{
+		assert.notThat(soledad.laPego())
+	}
 }
