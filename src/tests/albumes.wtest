@@ -19,6 +19,7 @@ describe "Test para albumes y musicos"{
 	const joaquin = new MusicoDeGrupo(20,5)
 	const kike = new MusicoDeGrupo(60,20)
 	const soledad = new VocalistaPopular(55,"amor")
+
 	fixture{
 		joaquin.agregarAlbum(especialLaFamilia)
 		soledad.agregarAlbum(laSole)
@@ -46,10 +47,15 @@ describe "Test para albumes y musicos"{
 	test "la cancion mas larga del album la sole es eres"{
 		assert.equals(eres,laSole.cancionMasLarga())
 	}
+	test "la cancion mas larga del album especialLaFamilia es laFamilia"{
+		assert.equals(laFamilia,especialLaFamilia.cancionMasLarga())
+	}
+	
 	test "joaquin la pego con su unico album especialLaFamilia"{
 		assert.that(joaquin.laPego())
 	}
 	test "soledad no la pego con su album laSole"{
 		assert.notThat(soledad.laPego())
 	}
+
 }
