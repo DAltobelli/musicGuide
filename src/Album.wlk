@@ -24,4 +24,7 @@ class Album {
 	method cancionMasLarga(){
 		return canciones.max{unaCancion=>unaCancion.largoLetra()}
 	}
+	method tuvoBuenasVentas(){
+		return unidadesVendidas>unidadesALaVenta*(0.75)
+	}
 }
