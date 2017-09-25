@@ -28,4 +28,8 @@ class Presentacion {
 	}
 	
 	method fecha() = fecha
+	
+	method antesDe(unaFecha){
+		return fecha<unaFecha
+	}
 }

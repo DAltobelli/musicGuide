@@ -22,4 +22,8 @@ class Cancion {
 	method largoLetra(){
 		return letra.size()
 	}
+	
+	method duraMasDe(unaDuracion){
+		return duracion>unaDuracion
+	}
 }

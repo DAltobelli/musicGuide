@@ -51,7 +51,7 @@ class MusicoDeGrupo inherits Musico{
 	
 
 	method interpretaBienCancion(unaCancion) {
-		return unaCancion.duracion() > 300
+		return unaCancion.duraMasDe(300)
 	}
 
 	method costoPresentacion(unaPresentacion) {
@@ -116,7 +116,7 @@ object luisAlberto inherits Musico{
 	}
 
 	method costoPresentacion(unaPresentacion) {
-		if(unaPresentacion.fecha() < new Date(01,09,2017)){
+		if(unaPresentacion.antesDe(new Date(01,09,2017))){
 			return 1000
 		}else{
 			return 1200
