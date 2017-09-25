@@ -45,6 +45,9 @@ describe "Test para albumes y musicos"{
 	test "la obra de kike dura 0"{
 		assert.equals(0,kike.duracionObra())
 	}
+	test "kike lapegó porque no tiene albumes"{
+		assert.that(kike.laPego())
+	}
 	test "la obra de soledad dura 299"{
 		assert.equals(299,soledad.duracionObra())
 	}
