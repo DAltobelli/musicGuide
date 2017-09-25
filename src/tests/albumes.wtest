@@ -26,17 +26,21 @@ describe "Test para albumes y musicos"{
 		luisAlberto.agregarAlbum(paraLosArboles)
 		luisAlberto.agregarAlbum(justCrisantemo)
 	}
-	test "joaquin no es minimalista"{
-		assert.notThat(joaquin.esMinimalista())
-	}
+	
 	test "Soledad debe ser minimalista"{
 		assert.that(soledad.esMinimalista())
 	}
 	test "luisAlberto no debe ser minimalista"{
 		assert.notThat(luisAlberto.esMinimalista())
 	}
+	test "joaquin no es minimalista"{
+		assert.notThat(joaquin.esMinimalista())
+	}
 	test "las canciones de luisAlberto que contienen cielo son almaDeDiamante y crisantemo"{
 		assert.equals(#{almaDeDiamante,crisantemo},luisAlberto.cancionesCon("cielo").asSet())
+	}
+	test "no hay canciones de luisAlberto que contengan pujante"{
+		assert.equals(#{},luisAlberto.cancionesCon("pujante").asSet())
 	}
 	test "la obra de kike dura 0"{
 		assert.equals(0,kike.duracionObra())
@@ -44,13 +48,21 @@ describe "Test para albumes y musicos"{
 	test "la obra de soledad dura 299"{
 		assert.equals(299,soledad.duracionObra())
 	}
+	test "la obra de luisAlberto dura 703"{
+		assert.equals(703,luisAlberto.duracionObra())
+	}
+	test "la cancion mas larga de paraLosArboles debe ser almaDeDiamante"{
+		assert.equals(almaDeDiamante,paraLosArboles.cancionMasLarga())
+	}
 	test "la cancion mas larga del album la sole es eres"{
 		assert.equals(eres,laSole.cancionMasLarga())
 	}
 	test "la cancion mas larga del album especialLaFamilia es laFamilia"{
 		assert.equals(laFamilia,especialLaFamilia.cancionMasLarga())
 	}
-	
+	test "luisAlberto la pego porque es un crack"{
+		assert.that(luisAlberto.laPego())
+	}
 	test "joaquin la pego con su unico album especialLaFamilia"{
 		assert.that(joaquin.laPego())
 	}
