@@ -15,17 +15,14 @@ object noTieneGrupo{
 
 class Musico{
 	var albumes = #{}
-	var tieneGrupo = true
+	var grupo = tieneGrupo
 	
 	method albumes() = albumes
 	method agregarAlbum(unAlbum){
 		albumes.add(unAlbum)
 	}
 	method abandonarGrupo(){
-		tieneGrupo = false
-	}
-	method tieneGrupo(){
-		return tieneGrupo
+		grupo = noTieneGrupo
 	}
 	
 	method esMinimalista(){
@@ -52,12 +49,7 @@ class MusicoDeGrupo inherits Musico{
 	}
 	
 	method habilidad(){
-		if(tieneGrupo){
-			return habilidadBase + habilidadGrupal
-		}
-		else{
-			return habilidadBase
-		}
+		grupo.habilidad(habilidadGrupal,habilidadBase)
 	}
 	
 
@@ -84,12 +76,7 @@ class VocalistaPopular inherits Musico{
 	}
 	
 	method habilidad(){
-		if(tieneGrupo){
-			return habilidadBase - 20
-		}
-		else{
-			return habilidadBase
-		}
+		return grupo.habilidad(-20,habilidadBase)
 	}
 	
 	method interpretaBienCancion(unaCancion) {
