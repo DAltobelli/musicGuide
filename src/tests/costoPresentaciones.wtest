@@ -2,6 +2,7 @@ import Musico.*
 import guitarras.*
 import lugares.*
 import Presentacion.*
+import luisAlberto.*
 
 describe "costos de las presentaciones y capacidades de laTrastienda"{
 	const joaquin = new MusicoDeGrupo(20,5)

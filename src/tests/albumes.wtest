@@ -1,6 +1,7 @@
 import Cancion.*
 import Musico.*
 import Album.*
+import luisAlberto.*
 
 describe "Test para albumes y musicos"{
 	

@@ -1,4 +1,5 @@
 import Musico.*
+import luisAlberto.*
 import guitarras.*
 
 describe "test para saber si las habilidades de los cantantes varían correctamente"{

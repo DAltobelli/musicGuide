@@ -1,17 +1,7 @@
 import Cancion.*
 import guitarras.*
 import Album.*
-
-object tieneGrupo{
-	method habilidad(habilidadGrupal,habilidadIndividual){
-		return habilidadGrupal+habilidadIndividual
-	}
-}
-object noTieneGrupo{
-	method habilidad(habilidadGrupal,habilidadIndividual){
-		return habilidadIndividual
-	}
-}
+import estadoGrupal.*
 
 class Musico{
 	var albumes = #{}
@@ -49,7 +39,7 @@ class MusicoDeGrupo inherits Musico{
 	}
 	
 	method habilidad(){
-		grupo.habilidad(habilidadGrupal,habilidadBase)
+		return grupo.habilidad(habilidadGrupal,habilidadBase)
 	}
 	
 
@@ -92,32 +82,4 @@ class VocalistaPopular inherits Musico{
 		}
 	}
 	
-}
-
-object luisAlberto inherits Musico{
-	var guitarraActual = fender
-
-	method guitarraActual(unaGuitarra) {
-		guitarraActual = unaGuitarra
-	}
-
-	method valorGuitarra() {
-		return guitarraActual.valor()
-	}
-
-	method habilidad() {
-		return 100.min(8 * self.valorGuitarra())
-	}
-
-	method interpretaBienCancion(unaCancion) {
-		return true
-	}
-
-	method costoPresentacion(unaPresentacion) {
-		if(unaPresentacion.antesDe(new Date(01,09,2017))){
-			return 1000
-		}else{
-			return 1200
-		}
-	}
 }
