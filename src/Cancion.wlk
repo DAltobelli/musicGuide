@@ -31,11 +31,7 @@ class Cancion {
 }
 
 class Remix inherits Cancion{
-	
-	constructor(unNombre, unaDuracion, letraCancion) 
-	= super(unNombre, unaDuracion, letraCancion){
-		duracion = unaDuracion*3
-		letra = "mueve tu cuelpo baby" + letraCancion +"yeah oh yeah"
+	constructor(unaCancion) = super(unaCancion.nombre(), unaCancion.duracion()*3, "mueve tu cuelpo baby "+unaCancion.letra()+" yeah oh yeah"){
 	}
 }
 	
@@ -71,7 +67,7 @@ method largoLetra(){
 	
 method duraMasDe(unaDuracion){
 	return self.duracion()>unaDuracion
-	}
+}
 
 	
 }

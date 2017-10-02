@@ -1,0 +1,40 @@
+import Cancion.*
+import Musico.*
+import Album.*
+import luisAlberto.*
+
+describe "Test para albumes y musicos"{
+	
+	const laFamilia= new Cancion("La Familia",264,"Quiero brindar por mi gente sencilla, por el amor brindo por la familia")
+	const eres = new Cancion("Eres",145,"Eres lo mejor que me pas� en la vida, no tengo duda, no habr� m�s nada despu�s de ti. Eres lo que le dio brillo al d�a a d�a, y as� ser� por siempre, no cambiar�, hasta el final de mis d�as.")
+	const corazonAmericano = new Cancion("Coraz�n Americano",154,"Canta coraz�n, canta m�s alto, que tu pena al fin se va marchando, el nuevo milenio ha de encontrarnos, junto coraz�n, como so�amos.")
+	const cisne = new Cancion("Cisne",312,"Hoy el viento se abri� qued� vac�o el aire una vez m�s y el manantial brot� y nadie est� aqu� y puedo ver que solo estallan las hojas al brillar")
+	const almaDeDiamante = new Cancion("Alma de diamante",216,"Ven a m� con tu dulce luz alma de diamante. Y aunque el sol se nuble despu�s sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven as� con la humanidad alma de diamante")
+	const crisantemo = new Cancion("Crisantemo",175,"T�came junto a esta pared, yo quede por aqu�... cuando no hubo m�s luz... quiero mirar a trav�s de mi piel... Crisantemo, que se abri�... encuentra el camino hacia el cielo")
+	
+	const especialLaFamilia = new Album(#{laFamilia},new Date(17,06,1992),100000,89000)
+	const laSole = new Album(#{eres,corazonAmericano},new Date(04,02,2005),200000,130000)
+	const paraLosArboles = new Album(#{cisne,almaDeDiamante},new Date(31,03,2003),50000,49000)
+	const justCrisantemo = new Album(#{crisantemo},new Date(05,12,2007),28000,27500)
+	
+	const joaquin = new MusicoDeGrupo(20,5)
+	const kike = new MusicoDeGrupo(60,20)
+	const soledad = new VocalistaPopular(55,"amor")
+
+	fixture{
+		joaquin.agregarAlbum(especialLaFamilia)
+		soledad.agregarAlbum(laSole)
+		luisAlberto.agregarAlbum(paraLosArboles)
+		luisAlberto.agregarAlbum(justCrisantemo)
+	}
+	
+	test "La cancion de mas larga duracion del album laSole es corazonAmericano"{
+		assert.equals(corazonAmericano,laSole.cancionMayorSegun(criterioDuracion))
+	}
+	test "La cancion de mas larga letra del album laSole es eres"{
+		assert.equals(eres,laSole.cancionMayorSegun(criterioLetra))
+	}
+	test "La cancion de mayor titulo del album laSole es eres"{
+		assert.equals(eres,laSole.cancionMayorSegun(criterioTitulo))
+	}
+}

@@ -27,4 +27,25 @@ class Album {
 	method tuvoBuenasVentas(){
 		return unidadesVendidas>unidadesALaVenta*(0.75)
 	}
+	method cancionMayorSegun(criterio){
+		return criterio.mayor(canciones)
+	}
+}
+
+object criterioDuracion{
+	method mayor(canciones){
+		return canciones.max({unaCancion=>unaCancion.duracion()})
+	}
+}
+
+object criterioLetra{
+	method mayor(canciones){
+		return canciones.max({unaCancion=>unaCancion.largoLetra()})
+	}
+}
+
+object criterioTitulo{
+	method mayor(canciones){
+		return canciones.max({unaCancion=>unaCancion.nombre()})
+	}
 }
