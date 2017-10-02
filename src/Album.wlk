@@ -32,20 +32,22 @@ class Album {
 	}
 }
 
-object criterioDuracion{
+class Criterio{
+	var criterio
+	constructor(unCriterio){
+		criterio = unCriterio
+	}
 	method mayor(canciones){
-		return canciones.max({unaCancion=>unaCancion.duracion()})
+		return canciones.max(criterio)
 	}
 }
 
-object criterioLetra{
-	method mayor(canciones){
-		return canciones.max({unaCancion=>unaCancion.largoLetra()})
-	}
+object criterioDuracion inherits Criterio({unaCancion=>unaCancion.duracion()}){
+	
 }
-
-object criterioTitulo{
-	method mayor(canciones){
-		return canciones.max({unaCancion=>unaCancion.nombre()})
-	}
+object criterioLetra inherits Criterio({unaCancion=>unaCancion.largoLetra()}){
+	
+}
+object criterioTitulo inherits Criterio({unaCancion=>unaCancion.nombre()}){
+	
 }
