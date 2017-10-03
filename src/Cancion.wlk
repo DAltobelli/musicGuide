@@ -35,39 +35,12 @@ class Remix inherits Cancion{
 	}
 }
 	
-class Mashups{
-var nombre
-var duracion
-var letra
-var canciones=#{}
-
-constructor(letraMashup,listaCanciones){
-	letra=letraMashup
-	canciones=listaCanciones
-}
-
-method duracion(){
- 	return canciones.max({unaCancion=> unaCancion.duracion()})
- }
-method nombre(){
-	return canciones.fold("",{unaCancion=> unaCancion.nombre()+ " "})
-}
-method letra()=letra
-
-method contienePalabra(unaPalabra){
-	return letra.toUpperCase().contains(unaPalabra.toUpperCase())
+class Mashup inherits Cancion{
+	constructor(unasCanciones,unaLetra)=super(" ",unasCanciones.max{unaCancion=>unaCancion.duracion()}.duracion(),unaLetra){
+		self.generarTitulo(unasCanciones)
 	}
 	
-method esCorta(){
-	return self.duracion()<180
-}
-method largoLetra(){
-	return letra.size()
-}
-	
-method duraMasDe(unaDuracion){
-	return self.duracion()>unaDuracion
-}
-
-	
+	method generarTitulo(unasCanciones){
+		nombre = unasCanciones.fold("",{letraMashup,unaCancion=>letraMashup+" "+unaCancion.letra()})
+	}
 }
