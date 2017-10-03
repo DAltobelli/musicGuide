@@ -31,7 +31,7 @@ class Musico{
 		return albumes.any{album=>album.canciones().contains(cancion)}
 	}
 	method interpretaBienCancion(unaCancion){
-		return (self.esCancionSuya(unaCancion)||self.habilidad()>70)
+		return (self.esCancionSuya(unaCancion)||self.habilidad()>60)
 	}
 	method habilidad()
 }
@@ -51,7 +51,7 @@ class MusicoDeGrupo inherits Musico{
 	
 
 	override method interpretaBienCancion(unaCancion) {
-		return (unaCancion.duraMasDe(300)||super(unaCancion))
+		return (unaCancion.duraMasDe(300)|| super(unaCancion))
 	}
 
 	method costoPresentacion(unaPresentacion) {
