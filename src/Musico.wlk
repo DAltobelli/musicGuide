@@ -2,6 +2,7 @@ import Cancion.*
 import guitarras.*
 import Album.*
 import estadoGrupal.*
+import Errores.*
 
 class Musico{
 	var albumes = #{}
@@ -34,6 +35,20 @@ class Musico{
 		return (self.esCancionSuya(unaCancion)||self.habilidad()>60)
 	}
 	method habilidad()
+	
+	method tieneHabilidadSuficiente(requisito){
+		if(self.habilidad()<=requisito)
+			throw new NoAlcanzaLaHabilidad("no tiene suficiente habilidad")
+	}
+	method tocaBienLaCancionNecesaria(cancion){
+		if(!self.interpretaBienCancion(cancion))
+		throw new NoInterpretaBienLaCancion("no puede tocar bien la cancion")
+	}
+	method tieneNCanciones(cantidad){
+		var todasLasCanciones= (albumes.map{album=>album.canciones()}).flatten()
+		if(todasLasCanciones.size()<cantidad)
+		throw new NoCompusoSuficientesCanciones("le Faltan Canciones")
+	}
 }
 
 class MusicoDeGrupo inherits Musico{

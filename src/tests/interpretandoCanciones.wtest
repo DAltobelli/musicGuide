@@ -33,6 +33,8 @@ describe "tests para saber si los cantantes interpretan bien las canciones"{
 	}
 	test "lucia no debe interpretar bien la cancion cisne"{
 		assert.notThat(lucia.interpretaBienCancion(cisne))
+		//recordar que aunque lucia tenga 70 de habilidad individual,cuenta como que esta en grupo 
+		//y por lo tanto se le resta 20. por eso no interpeta bien todo
 	}
 	test "luis alberto debe interpretar bien la familia"{
 		assert.that(luisAlberto.interpretaBienCancion(laFamilia))
