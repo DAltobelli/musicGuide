@@ -29,7 +29,7 @@ class Musico{
 		return albumes.all({unAlbum=>unAlbum.tuvoBuenasVentas()}) 
 	}
 	method esCancionSuya(cancion){
-		return albumes.any{album=>album.canciones().contains(cancion)}
+		return albumes.any{album=>album.contieneCancion(cancion)}
 	}
 	method interpretaBienCancion(unaCancion){
 		return (self.esCancionSuya(unaCancion)||self.habilidad()>60)

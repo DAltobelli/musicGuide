@@ -12,6 +12,9 @@ class Album {
 		unidadesVendidas=unasUnidadesVendidas
 	}
 	
+	method contieneCancion(unaCancion){
+		return canciones.contains(unaCancion)
+	}
 	method esMinimalista(){
 		return canciones.all({cancion=>cancion.esCorta()})
 	}

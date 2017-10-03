@@ -12,11 +12,11 @@ object luisAlberto inherits Musico{
 		return guitarraActual.valor()
 	}
 
-	method habilidad() {
+	override method habilidad() {
 		return 100.min(8 * self.valorGuitarra())
 	}
 
-	method interpretaBienCancion(unaCancion) {
+	override method interpretaBienCancion(unaCancion) {
 		return true
 	}
 
