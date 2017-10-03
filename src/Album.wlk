@@ -30,6 +30,9 @@ class Album {
 	method cancionMayorSegun(criterio){
 		return criterio.mayor(canciones)
 	}
+	method canciones() {
+		return canciones
+	}
 }
 
 class Criterio{

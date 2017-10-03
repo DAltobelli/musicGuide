@@ -27,6 +27,13 @@ class Musico{
 	method laPego(){
 		return albumes.all({unAlbum=>unAlbum.tuvoBuenasVentas()}) 
 	}
+	method esCancionSuya(cancion){
+		return albumes.any{album=>album.canciones().contains(cancion)}
+	}
+	method interpretaBienCancion(unaCancion){
+		return (self.esCancionSuya(unaCancion)||self.habilidad()>70)
+	}
+	method habilidad()
 }
 
 class MusicoDeGrupo inherits Musico{
@@ -38,13 +45,13 @@ class MusicoDeGrupo inherits Musico{
 		habilidadGrupal = unaHabilidadGrupal
 	}
 	
-	method habilidad(){
+	override method habilidad(){
 		return grupo.habilidad(habilidadGrupal,habilidadBase)
 	}
 	
 
-	method interpretaBienCancion(unaCancion) {
-		return unaCancion.duraMasDe(300)
+	override method interpretaBienCancion(unaCancion) {
+		return (unaCancion.duraMasDe(300)||super(unaCancion))
 	}
 
 	method costoPresentacion(unaPresentacion) {
@@ -65,12 +72,12 @@ class VocalistaPopular inherits Musico{
 		palabraMagica = unaPalabra
 	}
 	
-	method habilidad(){
+	override method habilidad(){
 		return grupo.habilidad(-20,habilidadBase)
 	}
 	
-	method interpretaBienCancion(unaCancion) {
-		return unaCancion.contienePalabra(palabraMagica)
+	override method interpretaBienCancion(unaCancion) {
+		return (unaCancion.contienePalabra(palabraMagica)|| super(unaCancion))
 	}
 	
 	
