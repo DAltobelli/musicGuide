@@ -44,3 +44,7 @@ class Mashup inherits Cancion{
 		nombre = unasCanciones.fold("",{letraMashup,unaCancion=>letraMashup+" "+unaCancion.letra()})
 	}
 }
+
+object aliciaEnElPais inherits Cancion("Canción de Alicia en el país",510,"Quién sabe Alicia, este país no estuvo hecho porque sí. Te vas a ir, vas a salir pero te quedas, ¿dónde más vas a ir? Y es que aquí, sabes el trabalenguas, trabalenguas, el asesino te asesina, y es mucho para ti. Se acabó ese juego que te hacía feliz."){
+	
+}
