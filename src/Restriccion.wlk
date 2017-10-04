@@ -1,10 +1,13 @@
 class Restriccion{
 	var condicion
-	constructor(unaCondicion){
+	var descripcion
+	constructor(unaCondicion,unaDescripcion){
 		condicion = unaCondicion
+		descripcion = unaDescripcion
 	}
 	
-	method esCumplidaPor(unMusico){
-		return condicion.apply(unMusico)
+	method verificar(unMusico){
+		if(!condicion.apply(unMusico))
+			self.error("No es aceptado por pdpalooza, ya que no cumple: " + descripcion)
 	}
 }

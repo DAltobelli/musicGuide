@@ -36,6 +36,9 @@ class Album {
 	method canciones() {
 		return canciones
 	}
+	method tieneAlgunaCancion(){
+		return !canciones.isEmpty()
+	}
 }
 
 class Criterio{

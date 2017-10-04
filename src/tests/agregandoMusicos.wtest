@@ -5,7 +5,6 @@ describe "tests para agregar musicos"{
 	const messi = new VocalistaPopular(100,"no borres el pizarron")
 	
 	test "messi no puede entrar en la pdppalooza"{
-		pdpalooza.agregarCantante(messi)
-		assert.notThat(pdpalooza.tocaMusico(messi))
+		assert.throwsExceptionWithMessage("No es aceptado por pdpalooza, ya que no cumple: Tener al menos una cancion", {=>pdpalooza.agregarCantante(messi)})
 	}
 }
