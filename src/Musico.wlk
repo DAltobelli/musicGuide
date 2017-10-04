@@ -4,7 +4,7 @@ import Album.*
 import estadoGrupal.*
 import Errores.*
 
-class Musico{
+class Musico{//es una clase abstracta
 	var albumes = #{}
 	var grupo = tieneGrupo
 	
@@ -34,20 +34,13 @@ class Musico{
 	method interpretaBienCancion(unaCancion){
 		return (self.esCancionSuya(unaCancion)||self.habilidad()>60)
 	}
-	method habilidad()
+	method habilidad()//un metodo abstracto
 	
-	method tieneHabilidadSuficiente(requisito){
-		if(self.habilidad()<=requisito)
-			throw new NoAlcanzaLaHabilidad("no tiene suficiente habilidad")
+	method habilidadMayorA(unaHabilidad){
+		return self.habilidad()>unaHabilidad
 	}
-	method tocaBienLaCancionNecesaria(cancion){
-		if(!self.interpretaBienCancion(cancion))
-		throw new NoInterpretaBienLaCancion("no puede tocar bien la cancion")
-	}
-	method tieneNCanciones(cantidad){
-		var todasLasCanciones= (albumes.map{album=>album.canciones()}).flatten()
-		if(todasLasCanciones.size()<cantidad)
-		throw new NoCompusoSuficientesCanciones("le Faltan Canciones")
+	method tieneAlgunaCancion(){
+		return albumes.any{unAlbum=>unAlbum.tieneAlgunaCancion()}
 	}
 }
 
