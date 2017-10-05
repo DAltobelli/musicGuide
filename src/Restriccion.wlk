@@ -10,7 +10,13 @@ class Restriccion{
 	
 	method verificar(unMusico){
 		if(!condicion.apply(unMusico))
+	 	try{
 			self.error("No es aceptado por pdpalooza, ya que no cumple: " + descripcion)
+		}
+		catch e: Exception{
+			console.println("No es aceptado por pdpalooza, ya que no cumple: " + descripcion)
+		}
+	//		self.error("No es aceptado por pdpalooza, ya que no cumple: " + descripcion)
 	}
 }
 
