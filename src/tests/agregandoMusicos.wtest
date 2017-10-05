@@ -7,7 +7,7 @@ describe "tests para agregar musicos"{
 	const tieneMasDe1000DeHabilidad = new Restriccion({unCantante=>unCantante.habilidadMayorA(1000)},"Tener habilidad mayor a 1000")
 	
 	test "messi no puede entrar en la pdppalooza"{
-		assert.throwsExceptionWithMessage("No es aceptado por pdpalooza, ya que no cumple: Tener al menos una cancion", {=>pdpalooza.agregarCantante(messi)})
+		assert.throwsExceptionWithMessage("No es aceptado por pdpalooza, ya que no cumple: Tener al menos una cancion", {pdpalooza.agregarCantante(messi)})
 	}
 	test "le saco el requerimiento de tener al menos una cancion, entonces messi deberia poder entrar"{
 		pdpalooza.quitarRestriccion(tieneAlMenosUnaCancion)
@@ -17,6 +17,6 @@ describe "tests para agregar musicos"{
 	test "le saco el requerimiento de tener al menos una cancion, pero le pongo el requerimiento de tener mas de 1000 de habilidad, messi no puede tocar"{
 		pdpalooza.quitarRestriccion(tieneAlMenosUnaCancion)
 		pdpalooza.agregarRestriccion(tieneMasDe1000DeHabilidad)
-		assert.throwsExceptionWithMessage("No es aceptado por pdpalooza, ya que no cumple: Tener habilidad mayor a 1000", {=>pdpalooza.agregarCantante(messi)})
+		assert.throwsExceptionWithMessage("No es aceptado por pdpalooza, ya que no cumple: Tener habilidad mayor a 1000", {pdpalooza.agregarCantante(messi)})
 	}
 }
