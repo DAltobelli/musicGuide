@@ -1,3 +1,4 @@
+import criterios.* 
 
 class Album {
 	var canciones 
@@ -25,7 +26,7 @@ class Album {
 		return canciones.sum{unaCancion=>unaCancion.duracion()}
 	}
 	method cancionMasLarga(){
-		return canciones.max{unaCancion=>unaCancion.largoLetra()}
+		return self.cancionMayorSegun(criterioLargoLetra)
 	}
 	method tuvoBuenasVentas(){
 		return unidadesVendidas>unidadesALaVenta*(0.75)
@@ -39,24 +40,4 @@ class Album {
 	method tieneAlgunaCancion(){
 		return !canciones.isEmpty()
 	}
-}
-
-class Criterio{
-	var criterio
-	constructor(unCriterio){
-		criterio = unCriterio
-	}
-	method mayor(canciones){
-		return canciones.max(criterio)
-	}
-}
-
-object criterioDuracion inherits Criterio({unaCancion=>unaCancion.duracion()}){
-	
-}
-object criterioLetra inherits Criterio({unaCancion=>unaCancion.largoLetra()}){
-	
-}
-object criterioTitulo inherits Criterio({unaCancion=>unaCancion.nombre()}){
-	
 }

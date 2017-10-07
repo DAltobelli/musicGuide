@@ -1,3 +1,4 @@
+import criterios.*
 
 class Cancion {
 	var nombre
@@ -36,8 +37,9 @@ class Remix inherits Cancion{
 }
 	
 class Mashup inherits Cancion{
-	constructor(unasCanciones,unaLetra)=super(" ",unasCanciones.max{unaCancion=>unaCancion.duracion()}.duracion(),unaLetra){
+	constructor(unasCanciones,unaLetra)=super(" ",0,unaLetra){
 		self.generarTitulo(unasCanciones)
+		duracion = criterioDuracion.mayor(unasCanciones).duracion()
 	}
 	
 	method generarTitulo(unasCanciones){

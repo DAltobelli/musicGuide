@@ -2,6 +2,7 @@ import Cancion.*
 import Musico.*
 import Album.*
 import luisAlberto.*
+import criterios.*
 
 describe "Test para albumes y musicos"{
 	
@@ -18,7 +19,6 @@ describe "Test para albumes y musicos"{
 	const justCrisantemo = new Album(#{crisantemo},new Date(05,12,2007),28000,27500)
 	
 	const joaquin = new MusicoDeGrupo(20,5)
-	const kike = new MusicoDeGrupo(60,20)
 	const soledad = new VocalistaPopular(55,"amor")
 
 	fixture{
@@ -32,7 +32,7 @@ describe "Test para albumes y musicos"{
 		assert.equals(corazonAmericano,laSole.cancionMayorSegun(criterioDuracion))
 	}
 	test "La cancion de mas larga letra del album laSole es eres"{
-		assert.equals(eres,laSole.cancionMayorSegun(criterioLetra))
+		assert.equals(eres,laSole.cancionMayorSegun(criterioLargoLetra))
 	}
 	test "La cancion de mayor titulo del album laSole es eres"{
 		assert.equals(eres,laSole.cancionMayorSegun(criterioTitulo))
