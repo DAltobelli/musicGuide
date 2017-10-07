@@ -41,10 +41,10 @@ class Mashup inherits Cancion{
 	}
 	
 	method generarTitulo(unasCanciones){
-		nombre = unasCanciones.fold("",{letraMashup,unaCancion=>letraMashup+" "+unaCancion.letra()})
+		nombre = unasCanciones.fold("",{nombreMashup,unaCancion=>nombreMashup+" "+unaCancion.nombre().trim()}).trim()
 	}
 }
 
-object aliciaEnElPais inherits Cancion("Canción de Alicia en el país",510,"Quién sabe Alicia, este país no estuvo hecho porque sí. Te vas a ir, vas a salir pero te quedas, ¿dónde más vas a ir? Y es que aquí, sabes el trabalenguas, trabalenguas, el asesino te asesina, y es mucho para ti. Se acabó ese juego que te hacía feliz."){
+object aliciaEnElPais inherits Cancion("Cancion de Alicia en el pais",510,"Quien sabe Alicia, este pais no estuvo hecho porque si. Te vas a ir, vas a salir pero te quedas, Â¿donde mas vas a ir? Y es que aqui, sabes el trabalenguas, trabalenguas, el asesino te asesina, y es mucho para ti. Se acabo ese juego que te hacia feliz."){
 	
 }

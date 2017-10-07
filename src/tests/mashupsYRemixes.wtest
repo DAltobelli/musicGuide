@@ -1,10 +1,6 @@
 import Cancion.*
-import Musico.*
-import Album.*
-import luisAlberto.*
 
 describe "Test para albumes y musicos"{
-	
 	const laFamilia= new Cancion("La Familia",264,"Quiero brindar por mi gente sencilla, por el amor brindo por la familia")
 	const eres = new Cancion("Eres",145,"Eres lo mejor que me paso en la vida, no tengo duda, no habra mas nada después de ti. Eres lo que le dio brillo al dia a dia, y asi sera por siempre, no cambiara, hasta el final de mis dias.")
 	const corazonAmericano = new Cancion("Corazon Americano",154,"Canta corazon, canta mas alto, que tu pena al fin se va marchando, el nuevo milenio ha de encontrarnos, junto corazon, como soñamos.")
@@ -12,30 +8,23 @@ describe "Test para albumes y musicos"{
 	const almaDeDiamante = new Cancion("Alma de diamante",216,"Ven a mi con tu dulce luz alma de diamante. Y aunque el sol se nuble despues sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven asi con la humanidad alma de diamante")
 	const crisantemo = new Cancion("Crisantemo",175,"Tocame junto a esta pared, yo quede por aqui... cuando no hubo mas luz... quiero mirar a traves de mi piel... Crisantemo, que se abrio... encuentra el camino hacia el cielo")
 	
-	const especialLaFamilia = new Album(#{laFamilia},new Date(17,06,1992),100000,89000)
-	const laSole = new Album(#{eres,corazonAmericano},new Date(04,02,2005),200000,130000)
-	const paraLosArboles = new Album(#{cisne,almaDeDiamante},new Date(31,03,2003),50000,49000)
-	const justCrisantemo = new Album(#{crisantemo},new Date(05,12,2007),28000,27500)
+	const laFamiliaRemix = new Remix(laFamilia)
+	const unMashup = new Mashup([eres,corazonAmericano,crisantemo]," ")
+	const otroMashup = new Mashup([crisantemo,eres,corazonAmericano]," ")
 	
-	const joaquin = new MusicoDeGrupo(20,5)
-	const kike = new MusicoDeGrupo(60,20)
-	const soledad = new VocalistaPopular(55,"amor")
-
-	fixture{
-		joaquin.agregarAlbum(especialLaFamilia)
-		soledad.agregarAlbum(laSole)
-		luisAlberto.agregarAlbum(paraLosArboles)
-		luisAlberto.agregarAlbum(justCrisantemo)
+	test "el remix de la familia dura 792"{
+		assert.equals(792,laFamiliaRemix.duracion())
 	}
-	
-	test "La cancion de mas larga duracion del album laSole es corazonAmericano"{
-		assert.equals(corazonAmericano,laSole.cancionMayorSegun(criterioDuracion))
+	test "letra del remix de la familia"{
+		assert.equals("mueve tu cuelpo baby Quiero brindar por mi gente sencilla, por el amor brindo por la familia yeah oh yeah",laFamiliaRemix.letra())
 	}
-	test "La cancion de mas larga letra del album laSole es eres"{
-		assert.equals(eres,laSole.cancionMayorSegun(criterioLetra))
+	test "el mashup de eres, corazon americano y crisantemo dura 175"{
+		assert.equals(175,unMashup.duracion())
 	}
-	test "La cancion de mayor titulo del album laSole es eres"{
-		assert.equals(eres,laSole.cancionMayorSegun(criterioTitulo))
+	test "titulo de unMashup"{
+		assert.equals("Eres Corazon Americano Crisantemo",unMashup.nombre())
 	}
-	
+	test "titulo de otroMashup"{
+		assert.equals("Crisantemo Eres Corazon Americano",otroMashup.nombre())
+	}
 }

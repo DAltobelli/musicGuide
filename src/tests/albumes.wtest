@@ -6,11 +6,11 @@ import luisAlberto.*
 describe "Test para albumes y musicos"{
 	
 	const laFamilia= new Cancion("La Familia",264,"Quiero brindar por mi gente sencilla, por el amor brindo por la familia")
-	const eres = new Cancion("Eres",145,"Eres lo mejor que me pas� en la vida, no tengo duda, no habr� m�s nada despu�s de ti. Eres lo que le dio brillo al d�a a d�a, y as� ser� por siempre, no cambiar�, hasta el final de mis d�as.")
-	const corazonAmericano = new Cancion("Coraz�n Americano",154,"Canta coraz�n, canta m�s alto, que tu pena al fin se va marchando, el nuevo milenio ha de encontrarnos, junto coraz�n, como so�amos.")
-	const cisne = new Cancion("Cisne",312,"Hoy el viento se abri� qued� vac�o el aire una vez m�s y el manantial brot� y nadie est� aqu� y puedo ver que solo estallan las hojas al brillar")
-	const almaDeDiamante = new Cancion("Alma de diamante",216,"Ven a m� con tu dulce luz alma de diamante. Y aunque el sol se nuble despu�s sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven as� con la humanidad alma de diamante")
-	const crisantemo = new Cancion("Crisantemo",175,"T�came junto a esta pared, yo quede por aqu�... cuando no hubo m�s luz... quiero mirar a trav�s de mi piel... Crisantemo, que se abri�... encuentra el camino hacia el cielo")
+	const eres = new Cancion("Eres",145,"Eres lo mejor que me paso en la vida, no tengo duda, no habra mas nada después de ti. Eres lo que le dio brillo al dia a dia, y asi sera por siempre, no cambiara, hasta el final de mis dias.")
+	const corazonAmericano = new Cancion("Corazon Americano",154,"Canta corazon, canta mas alto, que tu pena al fin se va marchando, el nuevo milenio ha de encontrarnos, junto corazon, como soñamos.")
+	const cisne = new Cancion("Cisne",312,"Hoy el viento se abrio quedo vacio el aire una vez mas y el manantial broto y nadie esta aqui y puedo ver que solo estallan las hojas al brillar")
+	const almaDeDiamante = new Cancion("Alma de diamante",216,"Ven a mi con tu dulce luz alma de diamante. Y aunque el sol se nuble despues sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven asi con la humanidad alma de diamante")
+	const crisantemo = new Cancion("Crisantemo",175,"Tocame junto a esta pared, yo quede por aqui... cuando no hubo mas luz... quiero mirar a traves de mi piel... Crisantemo, que se abrio... encuentra el camino hacia el cielo")
 	
 	const especialLaFamilia = new Album(#{laFamilia},new Date(17,06,1992),100000,89000)
 	const laSole = new Album(#{eres,corazonAmericano},new Date(04,02,2005),200000,130000)
@@ -46,7 +46,7 @@ describe "Test para albumes y musicos"{
 	test "la obra de kike dura 0"{
 		assert.equals(0,kike.duracionObra())
 	}
-	test "kike lapeg� porque no tiene albumes"{
+	test "kike lapeg� porque no tiene albumes"{
 		assert.that(kike.laPego())
 	}
 	test "la obra de soledad dura 299"{
