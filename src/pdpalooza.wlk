@@ -16,7 +16,7 @@ object pdpalooza inherits Presentacion(15,12,2017,lunaPark,#{}){
 		restricciones.remove(unaRestriccion)
 	}
 	method verificarRestricciones(unCantante){
-		return restricciones.forEach{unaRestriccion=>unaRestriccion.verificar(unCantante)}
+		restricciones.forEach{unaRestriccion=>unaRestriccion.verificar(unCantante)}
 	}
 	
 	override method agregarCantante(unCantante){
