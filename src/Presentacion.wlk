@@ -35,7 +35,13 @@ class Presentacion {
 	method antesDe(unaFecha){
 		return fecha<unaFecha
 	}
+	method luegoDe(unaFecha){
+		return fecha>unaFecha
+	}
 	method tocaMusico(unMusico){
 		return cantantes.contains(unMusico)
+	}
+	method entranMasDe(unaCantidad){
+		return lugar.capacidad(fecha)>unaCantidad
 	}
 }

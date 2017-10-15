@@ -3,10 +3,13 @@ import guitarras.*
 import Album.*
 import estadoGrupal.*
 import Errores.*
+import CobrarEInterpretar.*
 
 class Musico{//es una clase abstracta
 	var albumes = #{}
 	var grupo = tieneGrupo
+	var cobraSegun
+	var interpretaSegun
 	
 	method albumes() = albumes
 	method agregarAlbum(unAlbum){
@@ -22,6 +25,19 @@ class Musico{//es una clase abstracta
 	method cancionesCon(unaPalabra){
 		return albumes.flatMap{unAlbum=>unAlbum.cancionesCon(unaPalabra)}
 	}
+	method costoPresentacion(unaPresentacion){
+		return cobraSegun.costoPresentacion(unaPresentacion)
+	}
+	method cobraSegunCuantosTocan(unCosto){
+		cobraSegun= new CuantosSePresentan(unCosto)
+	}
+	method cobraSegunCapacidadDelLugar(unCosto,unaCantidad){
+		cobraSegun= new CapacidadDelLugar(unCosto,unaCantidad)
+	}
+	method cobraSegunFecha(unCosto,unaInflacion,unDia,unMes,unAnio){
+		cobraSegun= new Fecha(unCosto,unaInflacion,unDia,unMes,unAnio)
+	}
+	
 	method duracionObra(){
 		return albumes.sum{unAlbum=>unAlbum.duracion()}
 	}
@@ -32,7 +48,19 @@ class Musico{//es una clase abstracta
 		return albumes.any{album=>album.contieneCancion(cancion)}
 	}
 	method interpretaBienCancion(unaCancion){
-		return (self.esCancionSuya(unaCancion)||self.habilidad()>60)
+		return (self.esCancionSuya(unaCancion)
+				||self.habilidad()>60 
+				|| interpretaSegun.interpretaBien(unaCancion)
+		)
+	}
+	method interpretaSegunPalabra (unaPalabra){
+		interpretaSegun= new Palabras(unaPalabra)
+	}
+	method interpretaSegunDuracion(unaDuracion){
+		interpretaSegun= new Duracion(unaDuracion)
+	}
+	method interpretaSegunImparidad(){
+		interpretaSegun= imparidad
 	}
 	method habilidad()//un metodo abstracto
 	
@@ -58,17 +86,17 @@ class MusicoDeGrupo inherits Musico{
 	}
 	
 
-	override method interpretaBienCancion(unaCancion) {
+	/*override method interpretaBienCancion(unaCancion) {
 		return (unaCancion.duraMasDe(300)|| super(unaCancion))
-	}
+	}*/
 
-	method costoPresentacion(unaPresentacion) {
+	/*method costoPresentacion(unaPresentacion) {
 		if(unaPresentacion.esUnSolo()){
 			return 100
 		}else{
 			return 50
 		}
-	}
+	}*/
 }
 
 class VocalistaPopular inherits Musico{
@@ -84,17 +112,17 @@ class VocalistaPopular inherits Musico{
 		return grupo.habilidad(-20,habilidadBase)
 	}
 	
-	override method interpretaBienCancion(unaCancion) {
+	/*override method interpretaBienCancion(unaCancion) {
 		return (unaCancion.contienePalabra(palabraMagica)|| super(unaCancion))
-	}
+	}*/
 	
 	
-	method costoPresentacion(unaPresentacion) {
+/* 	method costoPresentacion(unaPresentacion) {
 		if(unaPresentacion.esLugarConcurrido()){
 			return 500
 		}else{
 			return 400
 		}
-	}
+	}*/
 	
 }

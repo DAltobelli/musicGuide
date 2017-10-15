@@ -29,6 +29,9 @@ class Cancion {
 	method duraMasDe(unaDuracion){
 		return duracion>unaDuracion
 	}
+	method esImpar(){
+		return duracion%2==1
+	}
 }
 
 class Remix inherits Cancion{
