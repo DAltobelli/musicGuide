@@ -8,15 +8,24 @@ import CobrarEInterpretar.*
 class Musico{//es una clase abstracta
 	var albumes = #{}
 	var grupo = tieneGrupo
-	var cobraSegun
-	var interpretaSegun
+	var formaDeCobrar
+	var formaDeInterpretar
 	
 	constructor(unaFormaDeCobrar,unaFormaDeInterpretar){
-		cobraSegun = unaFormaDeCobrar
-		interpretaSegun = unaFormaDeInterpretar
+		formaDeCobrar = unaFormaDeCobrar
+		formaDeInterpretar = unaFormaDeInterpretar
 	}
 	
 	method albumes() = albumes
+	
+	method formaDeCobrar(unaForma){
+		formaDeCobrar = unaForma
+	}
+	
+	method formaDeInterpretar(unaForma){
+		formaDeInterpretar = unaForma
+	}
+	
 	method agregarAlbum(unAlbum){
 		albumes.add(unAlbum)
 	}
@@ -31,9 +40,9 @@ class Musico{//es una clase abstracta
 		return albumes.flatMap{unAlbum=>unAlbum.cancionesCon(unaPalabra)}
 	}
 	method costoPresentacion(unaPresentacion){
-		return cobraSegun.costoPresentacion(unaPresentacion)
+		return formaDeCobrar.costoPresentacion(unaPresentacion)
 	}
-	method cobraSegunCuantosTocan(unCosto){
+	/*method cobraSegunCuantosTocan(unCosto){
 		cobraSegun= new CuantosSePresentan(unCosto)
 	}
 	method cobraSegunCapacidadDelLugar(unCosto,unaCantidad){
@@ -41,7 +50,7 @@ class Musico{//es una clase abstracta
 	}
 	method cobraSegunFecha(unCosto,unaInflacion,unDia,unMes,unAnio){
 		cobraSegun= new Fecha(unCosto,unaInflacion,unDia,unMes,unAnio)
-	}
+	}*/
 	
 	method duracionObra(){
 		return albumes.sum{unAlbum=>unAlbum.duracion()}
@@ -55,18 +64,18 @@ class Musico{//es una clase abstracta
 	method interpretaBienCancion(unaCancion){
 		return (self.esCancionSuya(unaCancion)
 				||self.habilidad()>60 
-				|| interpretaSegun.interpretaBien(unaCancion)
+				|| formaDeInterpretar.interpretaBien(unaCancion)
 		)
 	}
-	method interpretaSegunPalabra (unaPalabra){
-		interpretaSegun= new Palabras(unaPalabra)
+	/*method interpretaSegunPalabra (unaPalabra){
+		interpretaSegun= new Palabra(unaPalabra)
 	}
 	method interpretaSegunDuracion(unaDuracion){
 		interpretaSegun= new Duracion(unaDuracion)
 	}
 	method interpretaSegunImparidad(){
 		interpretaSegun= imparidad
-	}
+	}*/
 	method habilidad()//un metodo abstracto
 	
 	method habilidadMayorA(unaHabilidad){

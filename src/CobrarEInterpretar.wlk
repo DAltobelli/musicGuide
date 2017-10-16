@@ -36,23 +36,23 @@ class CapacidadDelLugar inherits Costo{
 class Fecha inherits Costo{
 	var fecha
 	var inflacion
-	constructor (costo,unaInflacion,dia,mes,anio)=super(costo){
-		inflacion=unaInflacion
-		fecha= new Date(dia,mes,anio)
+	constructor (costo,unPorcentajeInflacion,unaFecha)=super(costo){
+		inflacion=unPorcentajeInflacion
+		fecha= unaFecha
 	}
 	method costoPresentacion(unaPresentacion){
-		if (unaPresentacion.luegoDe(fecha))
+		if (unaPresentacion.antesDe(fecha))
 			return costoRegular
 		else
-			return costoRegular*inflacion
+			return costoRegular + costoRegular*inflacion/100
 	}
 	
 }
 
 
 //----interpretarSegun----
-class Palabras {
-var palabra
+class Palabra{
+	var palabra
 	constructor (unaPalabra){
 		palabra=unaPalabra
 	}
@@ -60,8 +60,8 @@ var palabra
 		return unaCancion.contienePalabra(palabra)
 	}
 }
-class Duracion {
-var tiempo
+class Duracion{
+	var tiempo
 	constructor (unTiempo){
 		tiempo=unTiempo
 	}

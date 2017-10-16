@@ -30,7 +30,7 @@ class Cancion {
 		return duracion>unaDuracion
 	}
 	method esImpar(){
-		return duracion%2==1
+		return duracion.odd()
 	}
 }
 

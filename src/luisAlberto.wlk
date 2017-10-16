@@ -1,7 +1,7 @@
 import Musico.*
 import guitarras.*
 
-object luisAlberto inherits Musico{
+object luisAlberto inherits Musico(null,null){
 	var guitarraActual = fender
 
 	method guitarraActual(unaGuitarra) {
