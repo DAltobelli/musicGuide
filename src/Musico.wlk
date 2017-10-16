@@ -34,6 +34,10 @@ class Musico{//es una clase abstracta
 		grupo = noTieneGrupo
 	}
 	
+	method esUnaBanda(){
+		return false
+	}
+	
 	method esMinimalista(){
 		return albumes.all({album=>album.esMinimalista()})
 	}

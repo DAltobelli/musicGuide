@@ -5,18 +5,31 @@ import Presentacion.*
 import luisAlberto.*
 import CobrarEInterpretar.*
 import estadoGrupal.*
+import Banda.*
 
 describe "costos de las presentaciones y capacidades de laTrastienda"{
 	const joaquin = new MusicoDeGrupo(tieneGrupo,new TocaSolo(100),new Larguero(300),20,5)
 	const lucia = new VocalistaPopular(tieneGrupo, new PorCapacidad(500,5000), new Palabrero("familia"),70)
 	const kike = new MusicoDeGrupo(tieneGrupo,new ExpectativaInflacionaria(4000,50,new Date(8,1,2018)),new Imparero(),60,20)
 	const soledad = new VocalistaPopular(noTieneGrupo,new TocaSolo(6000),new Palabrero("amor"),55)
-
-	const presentacionLunaPark = new Presentacion(20,04,2017,lunaPark,#{luisAlberto,lucia,joaquin})
-	const trastienda15_11_2017_solo = new Presentacion(15,11,2017,laTrastienda,#{joaquin})
-	const trastienda15_11_2017 = new Presentacion(15,11,2017,laTrastienda,#{luisAlberto,lucia,joaquin})
 	
-	/* hay que hacer las nuevas presentaciones */
+	const lunaPark = new Lugar(9290) //implementado ahora como instancia de Lugar
+	
+	const presentacionLunaPark = new Presentacion(new Date(20,04,2017),lunaPark,#{luisAlberto,lucia,joaquin})
+	const trastienda15_11_2017_solo = new Presentacion(new Date(15,11,2017),laTrastienda,#{joaquin})
+	const trastienda15_11_2017 = new Presentacion(new Date(15,11,2017),laTrastienda,#{luisAlberto,lucia,joaquin})
+	
+	/*Ahora tenemos bandas */
+	const pimpisole = new Banda(#{soledad,joaquin,lucia},1982)
+	const elEternoRetorno = new Banda(#{kike,luisAlberto},500)
+	
+	/*Nuevos lugares!!! */
+	const prixDAmi = new Lugar(150)
+	const laCueva = new Lugar(14000)
+	
+	/*Nuevas presentaciones */
+	const presentacionPrixDAmi = new Presentacion(new Date(30,06,2017),prixDAmi,#{joaquin,soledad,elEternoRetorno})
+	const presentacionLaCueva = new Presentacion(new Date(05,01,2018),laCueva,#{pimpisole})
 	
 	test "capacidad laTrastienda 5 de agosto de 2017"{
 		assert.equals(700,laTrastienda.capacidad(new Date(5,8,2017)))
@@ -50,4 +63,11 @@ describe "costos de las presentaciones y capacidades de laTrastienda"{
 		assert.equals(1650,trastienda15_11_2017.costo())
 	}
 	
+	/*Tests nuevos */
+	test "el costo de la presentacionPrixDAmi es 50 + 3000 + (4000 + 1000 + 500)=8550"{
+		assert.equals(8550,presentacionPrixDAmi.costo())
+	}
+	test "el costo de la presentacionLaCueva es 1982+50+3000+500=5532"{
+				assert.equals(5532,presentacionLaCueva.costo())
+	}
 }

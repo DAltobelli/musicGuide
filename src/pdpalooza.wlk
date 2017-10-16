@@ -6,7 +6,7 @@ import Album.*
 import Musico.*
 import Restriccion.*
 
-object pdpalooza inherits Presentacion(15,12,2017,lunaPark,#{}){
+object pdpalooza inherits Presentacion(new Date(15,12,2017),new Lugar(9290),#{}){
 	var restricciones = #{tieneMasDe70DeHabilidad, tocaBienAliciaEnElPais, tieneAlMenosUnaCancion}
 	
 	method agregarRestriccion(unaRestriccion){

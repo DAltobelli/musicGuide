@@ -9,8 +9,8 @@ class Presentacion {
 	var lugar
 	var cantantes = #{ }
 
-	constructor(unDia, unMes, unAnio, unLugar, unosCantantes) {
-		fecha = new Date(unDia,unMes,unAnio)
+	constructor(unaFecha, unLugar, unosCantantes) {
+		fecha = unaFecha
 		lugar = unLugar
 		cantantes = unosCantantes
 	}
@@ -27,7 +27,11 @@ class Presentacion {
 	}
 	
 	method esUnSolo(){
-		return cantantes.size() == 1
+		return (cantantes.size() == 1) && !self.tocanBandas()
+	}
+	
+	method tocanBandas(){
+		return cantantes.any{unCantante=>unCantante.esUnaBanda()}
 	}
 	
 	method fecha() = fecha

@@ -1,8 +1,3 @@
-object lunaPark{
-	method capacidad(unaFecha){
-		return 9290
-	}
-}
 object laTrastienda{
 	const capacidadPlantaBaja = 400
 	const capacidadPrimerPiso = 300
@@ -12,5 +7,15 @@ object laTrastienda{
 		}else{
 			return capacidadPlantaBaja
 		}
+	}
+}
+
+class Lugar{
+	var capacidad
+	constructor(unaCapacidad){
+		capacidad=unaCapacidad
+	}
+	method capacidad(unaFecha){
+		return capacidad
 	}
 }

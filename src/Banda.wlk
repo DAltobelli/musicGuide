@@ -8,6 +8,9 @@ class Banda {
 		costoRepresentante = unCostoRepresentante
 	}
 	
+	method esUnaBanda(){
+		return true
+	}
 	method habilidad(){
 		return integrantes.sum{unIntegrante=>unIntegrante.habilidad()} * 1.1
 	}
