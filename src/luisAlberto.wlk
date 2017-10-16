@@ -20,7 +20,7 @@ object luisAlberto inherits Musico{
 		return true
 	}
 
-	method costoPresentacion(unaPresentacion) {
+	override method costoPresentacion(unaPresentacion) {
 		if(unaPresentacion.antesDe(new Date(01,09,2017))){
 			return 1000
 		}else{

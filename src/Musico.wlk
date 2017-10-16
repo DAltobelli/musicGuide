@@ -11,6 +11,11 @@ class Musico{//es una clase abstracta
 	var cobraSegun
 	var interpretaSegun
 	
+	constructor(unaFormaDeCobrar,unaFormaDeInterpretar){
+		cobraSegun = unaFormaDeCobrar
+		interpretaSegun = unaFormaDeInterpretar
+	}
+	
 	method albumes() = albumes
 	method agregarAlbum(unAlbum){
 		albumes.add(unAlbum)
@@ -76,7 +81,7 @@ class MusicoDeGrupo inherits Musico{
 	var habilidadGrupal
 	var habilidadBase
 	
-	constructor(unaHabilidadBase,unaHabilidadGrupal){
+	constructor(unaFormaDeCobrar,unaFormaDeInterpretar,unaHabilidadBase,unaHabilidadGrupal) = super(unaFormaDeCobrar,unaFormaDeInterpretar){
 		habilidadBase = unaHabilidadBase
 		habilidadGrupal = unaHabilidadGrupal
 	}
@@ -101,11 +106,9 @@ class MusicoDeGrupo inherits Musico{
 
 class VocalistaPopular inherits Musico{
 	var habilidadBase
-	var palabraMagica
 	
-	constructor(unaHabilidadBase,unaPalabra){
+	constructor(unaFormaDeCobrar,unaFormaDeInterpretar,unaHabilidadBase)=super(unaFormaDeCobrar,unaFormaDeInterpretar){
 		habilidadBase = unaHabilidadBase
-		palabraMagica = unaPalabra
 	}
 	
 	override method habilidad(){
