@@ -11,7 +11,8 @@ class Musico{//es una clase abstracta
 	var formaDeCobrar
 	var formaDeInterpretar
 	
-	constructor(unaFormaDeCobrar,unaFormaDeInterpretar){
+	constructor(unEstadoGrupal,unaFormaDeCobrar,unaFormaDeInterpretar){
+		grupo = unEstadoGrupal
 		formaDeCobrar = unaFormaDeCobrar
 		formaDeInterpretar = unaFormaDeInterpretar
 	}
@@ -90,7 +91,7 @@ class MusicoDeGrupo inherits Musico{
 	var habilidadGrupal
 	var habilidadBase
 	
-	constructor(unaFormaDeCobrar,unaFormaDeInterpretar,unaHabilidadBase,unaHabilidadGrupal) = super(unaFormaDeCobrar,unaFormaDeInterpretar){
+	constructor(unEstadoGrupal,unaFormaDeCobrar,unaFormaDeInterpretar,unaHabilidadBase,unaHabilidadGrupal) = super(unEstadoGrupal,unaFormaDeCobrar,unaFormaDeInterpretar){
 		habilidadBase = unaHabilidadBase
 		habilidadGrupal = unaHabilidadGrupal
 	}
@@ -116,7 +117,7 @@ class MusicoDeGrupo inherits Musico{
 class VocalistaPopular inherits Musico{
 	var habilidadBase
 	
-	constructor(unaFormaDeCobrar,unaFormaDeInterpretar,unaHabilidadBase)=super(unaFormaDeCobrar,unaFormaDeInterpretar){
+	constructor(unEstadoGrupal,unaFormaDeCobrar,unaFormaDeInterpretar,unaHabilidadBase)=super(unEstadoGrupal,unaFormaDeCobrar,unaFormaDeInterpretar){
 		habilidadBase = unaHabilidadBase
 	}
 	

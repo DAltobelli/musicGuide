@@ -1,9 +1,11 @@
 import pdpalooza.*
 import Musico.*
 import Restriccion.*
+import estadoGrupal.*
+import CobrarEInterpretar.*
 
 describe "tests para agregar musicos"{
-	const messi = new VocalistaPopular(100,"No entiendo profe")
+	const messi = new VocalistaPopular(noTieneGrupo,new TocaSolo(500),new Palabrero("futbol"),100)
 	const tieneMasDe1000DeHabilidad = new Restriccion({unCantante=>unCantante.habilidadMayorA(1000)},"Tener habilidad mayor a 1000")
 	
 	test "messi no puede entrar en la pdppalooza"{

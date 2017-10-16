@@ -2,6 +2,8 @@ import Cancion.*
 import Musico.*
 import Album.*
 import luisAlberto.*
+import estadoGrupal.*
+import CobrarEInterpretar.*
 
 describe "Test para albumes y musicos"{
 	
@@ -17,9 +19,9 @@ describe "Test para albumes y musicos"{
 	const paraLosArboles = new Album(#{cisne,almaDeDiamante},new Date(31,03,2003),50000,49000)
 	const justCrisantemo = new Album(#{crisantemo},new Date(05,12,2007),28000,27500)
 	
-	const joaquin = new MusicoDeGrupo(20,5)
-	const kike = new MusicoDeGrupo(60,20)
-	const soledad = new VocalistaPopular(55,"amor")
+	const joaquin = new MusicoDeGrupo(tieneGrupo,new TocaSolo(100),new Larguero(300),20,5)
+	const kike = new MusicoDeGrupo(tieneGrupo,new ExpectativaInflacionaria(4000,50,new Date(8,1,2018)),new Imparero(),60,20)
+	const soledad = new VocalistaPopular(noTieneGrupo,new TocaSolo(6000),new Palabrero("amor"),55)
 
 	fixture{
 		joaquin.agregarAlbum(especialLaFamilia)

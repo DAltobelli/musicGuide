@@ -2,6 +2,8 @@ import Musico.*
 import Cancion.*
 import luisAlberto.*
 import Album.*
+import estadoGrupal.*
+import CobrarEInterpretar.*
 
 describe "tests para saber si los cantantes interpretan bien las canciones"{
 	const laFamilia= new Cancion("La Familia",264,"Quiero brindar por mi gente sencilla, por el amor brindo por la familia")
@@ -14,10 +16,10 @@ describe "tests para saber si los cantantes interpretan bien las canciones"{
 	const laSole = new Album(#{eres,corazonAmericano},new Date(04,02,2005),200000,130000)
 
 
-	const soledad = new VocalistaPopular(55,"amor")
-	const joaquin = new MusicoDeGrupo(20,5)
-	const lucia = new VocalistaPopular(70,"familia")
-	const elMaestro= new VocalistaPopular(1000,"tuVieja")
+	const joaquin = new MusicoDeGrupo(tieneGrupo,new TocaSolo(100),new Larguero(300),20,5)
+	const lucia = new VocalistaPopular(tieneGrupo, new PorCapacidad(500,5000), new Palabrero("familia"),70)
+	const soledad = new VocalistaPopular(noTieneGrupo,new TocaSolo(6000),new Palabrero("amor"),55)
+	const elMaestro= new VocalistaPopular(noTieneGrupo, null,new Palabrero("tuVieja"),1000)
 	
 
 	fixture{

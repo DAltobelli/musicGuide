@@ -3,13 +3,20 @@ import guitarras.*
 import lugares.*
 import Presentacion.*
 import luisAlberto.*
+import CobrarEInterpretar.*
+import estadoGrupal.*
 
 describe "costos de las presentaciones y capacidades de laTrastienda"{
-	const joaquin = new MusicoDeGrupo(20,5)
-	const lucia = new VocalistaPopular(70,"familia")
+	const joaquin = new MusicoDeGrupo(tieneGrupo,new TocaSolo(100),new Larguero(300),20,5)
+	const lucia = new VocalistaPopular(tieneGrupo, new PorCapacidad(500,5000), new Palabrero("familia"),70)
+	const kike = new MusicoDeGrupo(tieneGrupo,new ExpectativaInflacionaria(4000,50,new Date(8,1,2018)),new Imparero(),60,20)
+	const soledad = new VocalistaPopular(noTieneGrupo,new TocaSolo(6000),new Palabrero("amor"),55)
+
 	const presentacionLunaPark = new Presentacion(20,04,2017,lunaPark,#{luisAlberto,lucia,joaquin})
 	const trastienda15_11_2017_solo = new Presentacion(15,11,2017,laTrastienda,#{joaquin})
 	const trastienda15_11_2017 = new Presentacion(15,11,2017,laTrastienda,#{luisAlberto,lucia,joaquin})
+	
+	/* hay que hacer las nuevas presentaciones */
 	
 	test "capacidad laTrastienda 5 de agosto de 2017"{
 		assert.equals(700,laTrastienda.capacidad(new Date(5,8,2017)))

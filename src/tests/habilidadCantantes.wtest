@@ -1,10 +1,13 @@
 import Musico.*
 import luisAlberto.*
 import guitarras.*
+import estadoGrupal.*
+import CobrarEInterpretar.*
 
-describe "test para saber si las habilidades de los cantantes varían correctamente"{
-	const joaquin = new MusicoDeGrupo(20,5)
-	const lucia = new VocalistaPopular(70,"familia")
+describe "test para saber si las habilidades de los cantantes varian correctamente"{
+	const joaquin = new MusicoDeGrupo(tieneGrupo,new TocaSolo(100),new Larguero(300),20,5)
+	const lucia = new VocalistaPopular(tieneGrupo, new PorCapacidad(500,5000), new Palabrero("familia"),70)
+
 	
 	test "joaquin esta en pimpinela (habilidad=25)" {
 		assert.equals(25,joaquin.habilidad())

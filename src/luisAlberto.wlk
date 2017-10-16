@@ -1,7 +1,9 @@
 import Musico.*
 import guitarras.*
+import estadoGrupal.*
+import CobrarEInterpretar.*
 
-object luisAlberto inherits Musico(null,null){
+object luisAlberto inherits Musico(noTieneGrupo,new ExpectativaInflacionaria(1000,20,new Date(01,09,2017)),null){
 	var guitarraActual = fender
 
 	method guitarraActual(unaGuitarra) {
@@ -18,13 +20,5 @@ object luisAlberto inherits Musico(null,null){
 
 	override method interpretaBienCancion(unaCancion) {
 		return true
-	}
-
-	override method costoPresentacion(unaPresentacion) {
-		if(unaPresentacion.antesDe(new Date(01,09,2017))){
-			return 1000
-		}else{
-			return 1200
-		}
 	}
 }

@@ -12,7 +12,7 @@ class Costo{
 	}
 }
 
-class CuantosSePresentan inherits Costo{
+class TocaSolo inherits Costo{
 	constructor (unCosto)= super(unCosto){}
 	method costoPresentacion(unaPresentacion){
 		if(unaPresentacion.esUnSolo())
@@ -21,7 +21,7 @@ class CuantosSePresentan inherits Costo{
 		else return costoRegular/2
 	}
 }
-class CapacidadDelLugar inherits Costo{
+class PorCapacidad inherits Costo{
 	var cantidadGente
 	constructor (unCosto,unaGente)=super(unCosto){
 		cantidadGente=unaGente
@@ -33,7 +33,7 @@ class CapacidadDelLugar inherits Costo{
 			return costoRegular-100
 	}
 }
-class Fecha inherits Costo{
+class ExpectativaInflacionaria inherits Costo{
 	var fecha
 	var inflacion
 	constructor (costo,unPorcentajeInflacion,unaFecha)=super(costo){
@@ -51,7 +51,7 @@ class Fecha inherits Costo{
 
 
 //----interpretarSegun----
-class Palabra{
+class Palabrero{
 	var palabra
 	constructor (unaPalabra){
 		palabra=unaPalabra
@@ -60,7 +60,7 @@ class Palabra{
 		return unaCancion.contienePalabra(palabra)
 	}
 }
-class Duracion{
+class Larguero{
 	var tiempo
 	constructor (unTiempo){
 		tiempo=unTiempo
@@ -69,7 +69,7 @@ class Duracion{
 		return unaCancion.duraMasDe(tiempo)
 	}
 }
-object imparidad{
+class Imparero{
 	method interpretaBien(unaCancion){
 		return unaCancion.esImpar()
 	}
