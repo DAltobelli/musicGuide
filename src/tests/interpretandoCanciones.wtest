@@ -4,13 +4,14 @@ import luisAlberto.*
 import Album.*
 import estadoGrupal.*
 import CobrarEInterpretar.*
+import Banda.*
 
 describe "tests para saber si los cantantes interpretan bien las canciones"{
 	const laFamilia= new Cancion("La Familia",264,"Quiero brindar por mi gente sencilla, por el amor brindo por la familia")
 	const eres = new Cancion("Eres",145,"Eres lo mejor que me paso en la vida, no tengo duda, no habra mas nada después de ti. Eres lo que le dio brillo al dia a dia, y asi sera por siempre, no cambiara, hasta el final de mis dias.")
 	const corazonAmericano = new Cancion("Corazon Americano",154,"Canta corazon, canta mas alto, que tu pena al fin se va marchando, el nuevo milenio ha de encontrarnos, junto corazon, como soñamos.")
 	const cisne = new Cancion("Cisne",312,"Hoy el viento se abrio quedo vacio el aire una vez mas y el manantial broto y nadie esta aqui y puedo ver que solo estallan las hojas al brillar")
-	const canciones =#{laFamilia,cisne,eres,corazonAmericano}
+	const todasLasCanciones =#{laFamilia,cisne,eres,corazonAmericano}
 	
 	const especialLaFamilia = new Album(#{laFamilia},new Date(17,06,1992),100000,89000)
 	const laSole = new Album(#{eres,corazonAmericano},new Date(04,02,2005),200000,130000)
@@ -20,8 +21,13 @@ describe "tests para saber si los cantantes interpretan bien las canciones"{
 	const lucia = new VocalistaPopular(tieneGrupo, new PorCapacidad(500,5000), new Palabrero("familia"),70)
 	const soledad = new VocalistaPopular(noTieneGrupo,new TocaSolo(6000),new Palabrero("amor"),55)
 	const elMaestro= new VocalistaPopular(noTieneGrupo, null,new Palabrero("tuVieja"),1000)
+	const kike = new MusicoDeGrupo(tieneGrupo,new ExpectativaInflacionaria(4000,50,new Date(8,1,2018)),new Imparero(),60,20)
 	
-
+	
+	/*Ahora tenemos bandas */
+	const pimpisole = new Banda(#{soledad,joaquin,lucia},1982)
+	const elEternoRetorno = new Banda(#{kike,luisAlberto},500)
+	
 	fixture{
 		joaquin.agregarAlbum(especialLaFamilia)
 		soledad.agregarAlbum(laSole)
@@ -54,6 +60,26 @@ describe "tests para saber si los cantantes interpretan bien las canciones"{
 		assert.that(joaquin.interpretaBienCancion(cisne))
 	}
 	test "el maestro toca bien todos los temas porque la descose"{
-		assert.that(canciones.all{cancion=>elMaestro.interpretaBienCancion(cancion)})
+		assert.that(todasLasCanciones.all{cancion=>elMaestro.interpretaBienCancion(cancion)})
+	}
+	
+	//tests nuevos entrega 4
+	test "el maestro toca bien todos los temas porque la descose v2.0"{
+		assert.equals(#{laFamilia,cisne,eres,corazonAmericano},elMaestro.interpretaBienCanciones(todasLasCanciones))
+	}
+	test "de todas las canciones, lucia interpreta bien laFamilia"{
+		assert.equals(#{laFamilia},lucia.interpretaBienCanciones(todasLasCanciones))
+	}
+	test "de todas las canciones, soledad interpreta bien laFamilia, eres y corazonAmericano"{
+		assert.equals(#{laFamilia,eres,corazonAmericano},soledad.interpretaBienCanciones(todasLasCanciones))
+	}
+	test "pimpisole interpreta bien laFamilia(tiene las palabras amor y familia, y es un tema de joaquin)"{
+		assert.that(pimpisole.interpretaBienCancion(laFamilia))
+	}
+	test "pimpisole no interpreta bien eres (solo se la sabe la sole)"{
+		assert.notThat(pimpisole.interpretaBienCancion(eres))
+	}
+	test "el eterno retorno interpreta bien todo"{
+		assert.that(todasLasCanciones.all{cancion=>elEternoRetorno.interpretaBienCancion(cancion)})
 	}
 }

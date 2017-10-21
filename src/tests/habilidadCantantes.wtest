@@ -3,11 +3,18 @@ import luisAlberto.*
 import guitarras.*
 import estadoGrupal.*
 import CobrarEInterpretar.*
+import Banda.*
 
 describe "test para saber si las habilidades de los cantantes varian correctamente"{
+
 	const joaquin = new MusicoDeGrupo(tieneGrupo,new TocaSolo(100),new Larguero(300),20,5)
 	const lucia = new VocalistaPopular(tieneGrupo, new PorCapacidad(500,5000), new Palabrero("familia"),70)
-
+	const soledad = new VocalistaPopular(noTieneGrupo,new TocaSolo(6000),new Palabrero("amor"),55)
+	const kike = new MusicoDeGrupo(tieneGrupo,new ExpectativaInflacionaria(4000,50,new Date(8,1,2018)),new Imparero(),60,20)
+	
+	/*Ahora tenemos bandas */
+	const pimpisole = new Banda(#{soledad,joaquin,lucia},1982)
+	const elEternoRetorno = new Banda(#{kike,luisAlberto},500)
 	
 	test "joaquin esta en pimpinela (habilidad=25)" {
 		assert.equals(25,joaquin.habilidad())
@@ -37,5 +44,17 @@ describe "test para saber si las habilidades de los cantantes varian correctamen
 		luisAlberto.guitarraActual(gibson)
 		gibson.romperse()
 		assert.equals(40,luisAlberto.habilidad())
+	}
+	test "la sole es vocalista y no esta en grupo, habilidad 55"{
+		assert.equals(55,soledad.habilidad())
+	}
+	
+	// Nuevos tests entrega 4
+	
+	test "La habilidad de pimpisole es (35+25+50)*1.1=121. La sole pasa a tener 35, por tocar en grupo"{
+		assert.equals(121,pimpisole.habilidad())
+	}
+	test "La habilidad de elEternoRetorno es (80+80)*1.1=176"{
+		assert.equals(176,elEternoRetorno.habilidad())
 	}
 }

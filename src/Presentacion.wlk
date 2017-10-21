@@ -48,4 +48,7 @@ class Presentacion {
 	method entranMasDe(unaCantidad){
 		return lugar.capacidad(fecha)>unaCantidad
 	}
+	method magia(){
+		return cantantes.sum({unCantante=>unCantante.habilidad()})
+	}
 }

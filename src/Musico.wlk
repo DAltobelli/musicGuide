@@ -33,6 +33,9 @@ class Musico{//es una clase abstracta
 	method abandonarGrupo(){
 		grupo = noTieneGrupo
 	}
+	method unirseAGrupo(){
+		grupo = tieneGrupo
+	}
 	
 	method esUnaBanda(){
 		return false
@@ -71,6 +74,9 @@ class Musico{//es una clase abstracta
 				||self.habilidad()>60 
 				|| formaDeInterpretar.interpretaBien(unaCancion)
 		)
+	}
+	method interpretaBienCanciones(listaCanciones){
+		return listaCanciones.filter({unaCancion=>self.interpretaBienCancion(unaCancion)})
 	}
 	/*method interpretaSegunPalabra (unaPalabra){
 		interpretaSegun= new Palabra(unaPalabra)

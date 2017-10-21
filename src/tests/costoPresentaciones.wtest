@@ -63,11 +63,15 @@ describe "costos de las presentaciones y capacidades de laTrastienda"{
 		assert.equals(1650,trastienda15_11_2017.costo())
 	}
 	
-	/*Tests nuevos */
+	/*Tests nuevos entrega 4*/
+	
 	test "el costo de la presentacionPrixDAmi es 50 + 3000 + (4000 + 1000 + 500)=8550"{
 		assert.equals(8550,presentacionPrixDAmi.costo())
 	}
 	test "el costo de la presentacionLaCueva es 1982+50+3000+500=5532"{
-				assert.equals(5532,presentacionLaCueva.costo())
+		assert.equals(5532,presentacionLaCueva.costo())
+	}
+	test "la magia de la presentacionPrixDAmi es 25 + 55 + (80 + 80)*1.1 = 256"{
+		assert.equals(256,presentacionPrixDAmi.magia())
 	}
 }

@@ -1,3 +1,4 @@
+import Musico.*
 
 class Banda {
 	var integrantes
@@ -12,6 +13,7 @@ class Banda {
 		return true
 	}
 	method habilidad(){
+		integrantes.forEach({unMusico=>unMusico.unirseAGrupo()})
 		return integrantes.sum{unIntegrante=>unIntegrante.habilidad()} * 1.1
 	}
 	method interpretaBienCancion(unaCancion){
