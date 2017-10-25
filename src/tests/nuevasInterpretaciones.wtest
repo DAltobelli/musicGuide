@@ -1,0 +1,49 @@
+import Musico.*
+import Cancion.*
+import luisAlberto.*
+import Album.*
+import estadoGrupal.*
+import CobrarEInterpretar.*
+import Banda.*
+
+describe "tests para saber si los cantantes interpretan bien las canciones"{
+	const laFamilia= new Cancion("La Familia",264,"Quiero brindar por mi gente sencilla, por el amor brindo por la familia")
+	const eres = new Cancion("Eres",145,"Eres lo mejor que me paso en la vida, no tengo duda, no habra mas nada después de ti. Eres lo que le dio brillo al dia a dia, y asi sera por siempre, no cambiara, hasta el final de mis dias.")
+	const corazonAmericano = new Cancion("Corazon Americano",154,"Canta corazon, canta mas alto, que tu pena al fin se va marchando, el nuevo milenio ha de encontrarnos, junto corazon, como soñamos.")
+	const cisne = new Cancion("Cisne",312,"Hoy el viento se abrio quedo vacio el aire una vez mas y el manantial broto y nadie esta aqui y puedo ver que solo estallan las hojas al brillar")
+//	const todasLasCanciones =#{laFamilia,cisne,eres,corazonAmericano}
+	
+//	const especialLaFamilia = new Album(#{laFamilia},new Date(17,06,1992),100000,89000)
+//	const laSole = new Album(#{eres,corazonAmericano},new Date(04,02,2005),200000,130000)
+
+
+	const joaquin = new MusicoDeGrupo(tieneGrupo,new TocaSolo(100),new Larguero(300),20,5)
+	const lucia = new VocalistaPopular(tieneGrupo, new PorCapacidad(500,5000), new Palabrero("familia"),70)
+	const soledad = new VocalistaPopular(noTieneGrupo,new TocaSolo(6000),new Palabrero("amor"),55)
+//const elMaestro= new VocalistaPopular(noTieneGrupo, null,new Palabrero("tuVieja"),1000)
+	const kike = new MusicoDeGrupo(tieneGrupo,new ExpectativaInflacionaria(4000,50,new Date(8,1,2018)),new Imparero(),60,20)
+	
+
+test "lucia es palabrera de “familia”"{
+	assert.that(lucia.interpretaBienCancion(laFamilia))}
+	
+test "lucia no es palabrera de la palabra “familia” interpretando la cancion eres"{
+	assert.notThat(lucia.interpretaBienCancion(eres))
+}
+test "Joaquín es larguero de 300 segundos e interpreta bien la cancion cisne que dura 312 segundos"{
+	assert.that(joaquin.interpretaBienCancion(cisne))
+}
+test "joaquin es larguero de 300 segundos y  no interpreta bien la cancion corazonAmericano que dura 154 "{
+	assert.notThat(joaquin.interpretaBienCancion(corazonAmericano))
+}
+test "soledad es palabrera de “amor” por eso interpreta bien la canción laFamilia"{
+	assert.that(soledad.interpretaBienCancion(laFamilia))}
+
+test "soledad es palabrera de “amor” y por eso no interpreta bien la cancion eres"{
+	assert.notThat(soledad.interpretaBienCancion(eres))}
+
+test "Kike es imparero y por eso interpreta bien la canción laFamilia"{
+	assert.that(kike.interpretaBienCancion(laFamilia))
+}
+}
+
